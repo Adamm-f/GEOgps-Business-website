@@ -1,4 +1,15 @@
 /* Reset and base styles */
+:root{
+  --primary-00: #0E4690;
+  --primary-25: #007498;
+  --primary-50: #00bca1;
+  --primary-100: #acfa70;
+  --accent: #0e4691;
+  --bg-page: #f9f9f9;
+  --card-bg: #f5f8ff;
+  --text: #222;
+  --white: #ffffff;
+}
 * {
   margin: 0;
   box-sizing: border-box;
@@ -11,20 +22,20 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  background: #f9f9f9;
-  color: #222;
+  background: var(--bg-page);
+  color: var(--text);
   font-size: 1.15em;
   line-height: 1.6;
 }
 
 /* Header styles */
 header {
-  padding: 2em 2em;
+  padding: 2rem 2rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
   background-size: 300% 300%;
-  background-image: linear-gradient(-45deg, #0E4690 0%, #007498 25%, #00bca1 51%, #acfa70 100%);
+  background-image: linear-gradient(-45deg, var(--primary-00) 0%, var(--primary-25) 25%, var(--primary-50) 51%, var(--primary-100) 100%);
   -webkit-animation: AnimateBG 20s ease infinite;
           animation: AnimateBG 20s ease infinite;
 }
@@ -36,8 +47,8 @@ header {
   cursor: default;
   border: none;
   --border-right: 6px;
-  --text-stroke-color: #ffffff;
-  --animation-color: #ffffff;
+  --text-stroke-color: var(--white);
+  --animation-color: var(--white);
   --fs-size: 2em;
   font-weight: 700;
   letter-spacing: 3px;
@@ -65,14 +76,19 @@ header {
   border-radius: 50px;
   cursor: pointer;
   border: none;
-  background-color: #ffffff;
-  box-shadow:  0 0 8px #0e4691;
+  background-color: var(--white);
+  box-shadow:  0 0 8px var(--accent);
   letter-spacing: 1.5px;
   text-transform: uppercase;
   font-size: 1.1em;
   margin-left: 1em;
   font-weight: 600;
   transition: all 0.3s;
+  outline: none;
+}
+.nav_button:focus-visible {
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--accent) 40%, transparent);
+  transform: translateY(-2px);
 }
 .nav_button:hover {
   letter-spacing: 3px;
@@ -93,8 +109,8 @@ header {
 .O_nás,
 .Služby,
 .Kontakt-banner {
-  min-height: 80vh;
-  padding: 5em 3em;
+  line-clamp: 80%;
+  padding: 5rem 3rem;
   display: flex;
   align-items: center;
   gap: 4em;
@@ -109,11 +125,11 @@ header {
 .Služby-text,
 .Kontakt-text {
   flex: 1;
-  max-width: 1000px;
-  background: #f5f8ff;
+  line-clamp: 80%;
+  background: var(--card-bg);
   border-radius: 18px;
   box-shadow: 0 4px 32px #0e4691;
-  padding: 2.5em 2em;
+  padding: 2.5rem 2rem;
   margin: 0;
 }
 .O_nás h2,
@@ -132,7 +148,7 @@ header {
   color: #222;
 }
 
-/* Obrazky */
+/* Images */
 .image {
   flex: 1;
   display: flex;
@@ -147,7 +163,7 @@ header {
   object-fit: cover;
 }
 
-/* prva cast */
+/* First part */
 .štatistiky {
   display: flex;
   gap: 2em;
@@ -159,7 +175,7 @@ header {
   color: #0e4691;
 }
 
-/* druha cast */
+/* Second part */
 .Služby-list {
   display: flex;
   justify-content: space-between;
@@ -167,7 +183,7 @@ header {
   flex-wrap: wrap;
 }
 .Služby-item {
-  background: #ffffff;
+  background: var(--white);
   padding: 1.5em;
   border-radius: 8px;
   box-shadow: 0 0 10px #0001;
@@ -191,7 +207,7 @@ header {
   margin-bottom: 0.5em;
 }
 
-/* tretia cast */
+/* Third part */
 .Kontakt-info p {
   margin: 0.3em 0;
 }
@@ -203,14 +219,14 @@ header {
   padding: 3em 2em 2em;
   font-size: 1.25em;
   background-size: 300% 300%;
-  background-image: linear-gradient(-45deg, #0E4690 0%, #007498 25%, #00bca1 51%, #acfa70 100%);
+  background-image: linear-gradient(-45deg, var(--primary-00) 0%, var(--primary-25) 25%, var(--primary-50) 51%, var(--primary-100) 100%);
   -webkit-animation: AnimateBG 20s ease infinite;
           animation: AnimateBG 20s ease infinite;
-  color: #fff;
+  color: var(--white);
   display: flex;
   flex-direction: column;
   align-items: center;
-  border-top: 10px solid #0e4691;
+  border-top: 10px solid var(--accent);
 }
 .footer-content {
   display: flex;
@@ -237,13 +253,13 @@ header {
   width: 50px;
   height: 50px;
   border-radius: 50%;
-  background: #fff;
+  background: var(--white);
   border: none;
   font-weight: 600;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 0 0 4px #0e4691;
+  box-shadow: 0 0 0 4px var(--accent);
   cursor: pointer;
   transition: width 0.3s, border-radius 0.3s, background 0.3s;
   overflow: hidden;
@@ -251,6 +267,10 @@ header {
   bottom: 32px;
   right: 32px;
   z-index: 9999;
+  outline: none;
+}
+.button_back_to_top:focus-visible {
+  box-shadow: 0 0 0 6px color-mix(in srgb, var(--accent) 30%, transparent);
 }
 .svgIcon {
   width: 24px;
@@ -308,8 +328,7 @@ header {
     min-height: 60vh;
     text-align: left;
   }
-  .hero-image img,
-  .section-image img {
+  .image img {
     max-width: 90vw;
   }
   .Služby-list {
