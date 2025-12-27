@@ -1,0 +1,323 @@
+/* Reset and base styles */
+* {
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Arial, sans-serif;
+}
+html, body {
+  height: 100%;
+}
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: #f9f9f9;
+  color: #222;
+  font-size: 1.15em;
+  line-height: 1.6;
+}
+
+/* Header styles */
+header {
+  padding: 2em 2em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-size: 300% 300%;
+  background-image: linear-gradient(-45deg, #0E4690 0%, #007498 25%, #00bca1 51%, #acfa70 100%);
+  -webkit-animation: AnimateBG 20s ease infinite;
+          animation: AnimateBG 20s ease infinite;
+}
+.title {
+  margin: 0;
+  height: auto;
+  background: transparent;
+  padding: 0;
+  cursor: default;
+  border: none;
+  --border-right: 6px;
+  --text-stroke-color: #ffffff;
+  --animation-color: #ffffff;
+  --fs-size: 2em;
+  font-weight: 700;
+  letter-spacing: 3px;
+  font-size: 2.5em;
+  position: relative;
+  color: transparent;
+  -webkit-text-stroke: 1px var(--text-stroke-color);
+}
+.hover-text {
+  position: absolute;
+  color: #ffffff;
+  width: 0%;
+  inset: 0;
+  border-right: var(--border-right) solid var(--animation-color);
+  overflow: hidden;
+  transition: 0.5s;
+  -webkit-text-stroke: 1px var(--animation-color);
+}
+.title:hover .hover-text {
+  width: 100%;
+  filter: drop-shadow(0 0 23px #0E4690);
+}
+.nav_button {
+  padding: 0.8em 2em;
+  border-radius: 50px;
+  cursor: pointer;
+  border: none;
+  background-color: #ffffff;
+  box-shadow:  0 0 8px #0e4691;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  font-size: 1.1em;
+  margin-left: 1em;
+  font-weight: 600;
+  transition: all 0.3s;
+}
+.nav_button:hover {
+  letter-spacing: 3px;
+  background-color: #0e4691;
+  color: #ffffff;
+  box-shadow: #0e4691 0px 7px 29px 4px;
+}
+.nav_button:active {
+  letter-spacing: 3px;
+  background-color: #0e4691;
+  color: #ffffff;
+  box-shadow:  0px 7px 29px 4px #0e4691;
+  transform: translateY(10px);
+  transition: 100ms;
+}
+
+/* Main sections: O_nás, Služby, Kontakt-banner */
+.O_nás,
+.Služby,
+.Kontakt-banner {
+  min-height: 80vh;
+  padding: 5em 3em;
+  display: flex;
+  align-items: center;
+  gap: 4em;
+  width: 100%;
+  box-sizing: border-box;
+  background: #ffffff;
+  border-top: 10px solid #0e4691;
+}
+
+/* Section text containers */
+.O_nás-text,
+.Služby-text,
+.Kontakt-text {
+  flex: 1;
+  max-width: 1000px;
+  background: #f5f8ff;
+  border-radius: 18px;
+  box-shadow: 0 4px 32px #0e4691;
+  padding: 2.5em 2em;
+  margin: 0;
+}
+.O_nás h2,
+.Služby h2,
+.Kontakt-banner h2 {
+  font-size: 2.2em;
+  margin-bottom: 0.7em;
+  color: #0e4691;
+  font-weight: 700;
+}
+.O_nás p,
+.Služby p,
+.Kontakt-banner p {
+  font-size: 1.15em;
+  margin-bottom: 1.5em;
+  color: #222;
+}
+
+/* Obrazky */
+.image {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.image img {
+  width: 100%;
+  max-width: 400px;
+  border-radius: 16px;
+  box-shadow: 0 4px 32px #0001;
+  object-fit: cover;
+}
+
+/* prva cast */
+.štatistiky {
+  display: flex;
+  gap: 2em;
+  font-weight: bold;
+  margin-top: 1em;
+  color: #0e4691;
+}
+.štatistiky span {
+  color: #0e4691;
+}
+
+/* druha cast */
+.Služby-list {
+  display: flex;
+  justify-content: space-between;
+  gap: 2em;
+  flex-wrap: wrap;
+}
+.Služby-item {
+  background: #ffffff;
+  padding: 1.5em;
+  border-radius: 8px;
+  box-shadow: 0 0 10px #0001;
+  flex: 1 1 250px;
+  min-width: 250px;
+}
+.Služby-item h3 {
+  font-size: 1.3em;
+  margin-bottom: 0.5em;
+  color: #004080;
+  font-weight: 700;
+}
+.Služby-item p {
+  margin-bottom: 1em;
+}
+.Služby-item ul {
+  list-style-type: disc;
+  padding-left: 1.2em;
+}
+.Služby-item ul li {
+  margin-bottom: 0.5em;
+}
+
+/* tretia cast */
+.Kontakt-info p {
+  margin: 0.3em 0;
+}
+
+/* Footer styles */
+.site-footer {
+  margin-top: auto;
+  width: 100%;
+  padding: 3em 2em 2em;
+  font-size: 1.25em;
+  background-size: 300% 300%;
+  background-image: linear-gradient(-45deg, #0E4690 0%, #007498 25%, #00bca1 51%, #acfa70 100%);
+  -webkit-animation: AnimateBG 20s ease infinite;
+          animation: AnimateBG 20s ease infinite;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-top: 10px solid #0e4691;
+}
+.footer-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 2em;
+}
+.footer-logo img {
+  height: 64px;
+  width: auto;
+  display: block;
+}
+.footer-bottom {
+  text-align: center;
+  font-size: 1.1em;
+  border-top: 1px solid #ffffff;
+  padding-top: 2em;
+  margin-top: 0;
+  width: 100%;
+}
+
+/* Back to top button */
+.button_back_to_top {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: #fff;
+  border: none;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 0 4px #0e4691;
+  cursor: pointer;
+  transition: width 0.3s, border-radius 0.3s, background 0.3s;
+  overflow: hidden;
+  position: fixed;
+  bottom: 32px;
+  right: 32px;
+  z-index: 9999;
+}
+.svgIcon {
+  width: 24px;
+  height: 24px;
+  transition: opacity 0.3s, transform 0.3s;
+}
+.svgIcon path {
+  fill: #000000;
+}
+.button_back_to_top:hover {
+  width: 140px;
+  border-radius: 50px;
+  background: #0e4691;
+}
+.button_back_to_top:hover .svgIcon {
+  opacity: 0;
+  transform: translateY(-200%);
+}
+.button_back_to_top::before {
+  position: absolute;
+  left: 0; right: 0; top: 50%; transform: translateY(-50%);
+  content: "";
+  text-transform: uppercase;
+  color: #fff;
+  font-size: 0px;
+  text-align: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: font-size 0.3s, opacity 0.3s;
+}
+.button_back_to_top:hover::before {
+  content: "Späť hore";
+  font-size: 1.1em;
+  opacity: 1;
+}
+
+/* Responsive styles */
+@-webkit-keyframes AnimateBG {
+  0% {background-position: 0% 50%;}
+  50% {background-position: 100% 50%;}
+  100% {background-position: 0% 50%;}
+}
+@keyframes AnimateBG {
+  0% {background-position: 0% 50%;}
+  50% {background-position: 100% 50%;}
+  100% {background-position: 0% 50%;}
+}
+@media (max-width: 900px) {
+  .O_nás,
+  .Služby,
+  .Kontakt-banner {
+    flex-direction: column;
+    padding: 2em 1em;
+    gap: 2em;
+    min-height: 60vh;
+    text-align: left;
+  }
+  .hero-image img,
+  .section-image img {
+    max-width: 90vw;
+  }
+  .Služby-list {
+    flex-direction: column;
+    gap: 1.5em;
+  }
+  .footer-content {
+    flex-direction: column;
+    gap: 1.5em;
+  }
+}

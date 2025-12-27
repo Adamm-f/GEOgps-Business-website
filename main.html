@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="sk-SK">
+    <head>
+        <meta charset="UTF-8" />
+        <title>GeoGPS</title>
+        <link rel="stylesheet" href="style.css">
+        <link rel="website icon" href="favicon.ico" type="image/x-icon">
+    </head>
+
+    <body>
+        <button class="button_back_to_top" onclick="scrollToTop()">
+            <svg class="svgIcon" viewBox="0 0 384 512">
+                <path
+                d="M214.6 41.4c-12.5-12.5-32.8-12.5-45.3 0l-160 160c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L160 141.2V448c0 17.7 14.3 32 32 32s32-14.3 32-32V141.2L329.4 246.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3l-160-160z"
+                ></path>
+            </svg>
+        </button>
+
+        <header>
+            <button class="title">
+                <span class="actual-text">&nbsp;GeoGPS&nbsp;</span>
+                <span aria-hidden="true" class="hover-text">&nbsp;GeoGPS&nbsp;</span>
+            </button>
+            <nav>
+                <button class="nav_button" onclick="scrollToSection('O_nás')">O nás</button>
+                <button class="nav_button" onclick="scrollToSection('Služby')">Služby</button>
+                <button class="nav_button" onclick="scrollToSection('Kontakt')">Kontakt</button>
+            </nav>
+        </header>
+
+        <section class="O_nás" id="O_nás">
+            <div class="O_nás-text">
+                <h2>Presné meranie a vytyčovanie</h2>
+                <p>Odborné geodetické služby s najmodernejšou technológiou pre presné zememeračské práce, mapovanie nehnuteľností a vymedzovanie hraníc. Dôveryhodná spoločnosť, ktorej profesionáli dôverujú už viac ako dve desaťročia.</p>
+                <div class="štatistiky">
+                    <div><span>20+</span> rokov skúseností</div>
+                    <div><span>500+</span> dokončených projektov</div>
+                    <div><span>99%</span> miera presnosti</div>
+                </div>
+            </div>
+            <div class="image">
+                <img src="survey-person.jpg" alt="Priamo v akcii">
+            </div>
+        </section>
+
+        <section class="Služby" id="Služby">
+            <div class="Služby-text">
+                <h2>Naše služby</h2>
+                <div class="Služby-list">
+                    <div class="Služby-item">
+                        <h3>Mapovanie pozemkov</h3>
+                        <p>Presné topografické mapovanie a analýza terénu pomocou najmodernejšej technológie GPS a laserového skenovania.</p>
+                        <ul>
+                            <li>Topografické prieskumy</li>
+                            <li>GPS polohovanie</li>
+                            <li>Digitálne mapovanie</li>
+                        </ul>
+                    </div>
+                    <div class="Služby-item">
+                        <h3>Vymedzovanie pozemkov</h3>
+                        <p>Odborné vymedzovanie hraníc s právnou dokumentáciou pre nehnuteľnostné spory a projekty rozvoja.</p>
+                        <ul>
+                            <li>Prieskumy hraníc</li>
+                            <li>Právna dokumentácia</li>
+                            <li>Riešenie sporov</li>
+                        </ul>
+                    </div>
+                    <div class="Služby-item">
+                        <h3>Geodetické merania</h3>
+                        <p>Vysokopresné geodetické merania pre veľké projekty, rozvoj infraštruktúry a výskum.</p>
+                        <ul>
+                            <li>Kontrolné siete</li>
+                            <li>Mapovanie infraštruktúry</li>
+                            <li>Vedecké prieskumy</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="image">
+                <img src="services.jpg" alt="Ilustračný obrázok služieb">
+        </section>
+
+        <section class="Kontakt-banner" id="Kontakt">
+            <div class="Kontakt-text">
+                <h2>Pripravení začať váš projekt?</h2>
+                <p>Kontaktujte nás ešte dnes pre bezplatnú konzultáciu a zistite, ako naša geodetická odbornosť môže priniesť presnosť aj vášmu projektu.</p>
+                <div class="Kontakt-info">
+                    <p><strong>Telefónne číslo:</strong> +421 905 243 976</p>
+                    <p><strong>Email:</strong> info@geogps.com</p>
+                </div>
+            </div>
+            <div class="image">
+                <img src="contact.jpg" alt="Kontaktujte nás">
+            </div>
+        </section>
+
+        <footer class="site-footer">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="logo.png" alt="GeoGPS logo" />
+                </div>
+            </div>
+            <div class="footer-bottom">
+                © 2025 GeoGPS s.r.o. Všetky práva vyhradené.
+            </div>
+        </footer>
+
+        <script>
+            function scrollToSection(id) {
+                const section = document.getElementById(id);
+                if (section) {
+                    section.scrollIntoView({ behavior: 'smooth' });
+                }
+            }
+
+            function scrollToTop() {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+        </script>
+    </body>
+</html>
