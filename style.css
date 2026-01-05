@@ -9,6 +9,8 @@
   --card-bg: #f5f8ff;
   --text: #222;
   --white: #ffffff;
+  --link: #004080;
+  --muted: #333;
 }
 * {
   margin: 0;
@@ -268,6 +270,7 @@ header {
   right: 32px;
   z-index: 9999;
   outline: none;
+  color: var(--accent);
 }
 .button_back_to_top:focus-visible {
   box-shadow: 0 0 0 6px color-mix(in srgb, var(--accent) 30%, transparent);
@@ -276,14 +279,16 @@ header {
   width: 24px;
   height: 24px;
   transition: opacity 0.3s, transform 0.3s;
+  color: inherit;
 }
 .svgIcon path {
-  fill: #000000;
+  fill: currentColor;
 }
 .button_back_to_top:hover {
   width: 140px;
   border-radius: 50px;
-  background: #0e4691;
+  background: var(--accent);
+  color: var(--white);
 }
 .button_back_to_top:hover .svgIcon {
   opacity: 0;
@@ -307,7 +312,59 @@ header {
   opacity: 1;
 }
 
-/* Responsive styles */
+/* Keyboard-accessible focus outlines for interactive elements */
+a:focus-visible,
+button:focus-visible {
+  outline: 3px solid color-mix(in srgb, var(--accent) 40%, transparent);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+.Služby-item:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 4px;
+  box-shadow: none;
+}
+
+/* skip-to-content link (add an anchor <a class="skip-link" href="#main">Skip to content</a> in HTML) */
+.skip-link {
+  position: absolute;
+  left: -999px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+.skip-link:focus,
+.skip-link:active {
+  left: 1rem;
+  top: 1rem;
+  width: auto;
+  height: auto;
+  padding: 0.5rem 1rem;
+  background: var(--white);
+  color: var(--accent);
+  border-radius: 6px;
+  z-index: 99999;
+  box-shadow: 0 0 0 6px color-mix(in srgb, var(--accent) 30%, transparent);
+}
+
+/* respect users' reduced-motion preference */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+  /* remove hover animation effects when reduced motion is requested */
+  .title:hover .hover-text,
+  .button_back_to_top:hover .svgIcon,
+  .button_back_to_top:hover::before {
+    width: auto !important;
+    transform: none !important;
+    opacity: 1 !important;
+  }
+}
 @-webkit-keyframes AnimateBG {
   0% {background-position: 0% 50%;}
   50% {background-position: 100% 50%;}
