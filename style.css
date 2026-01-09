@@ -51,18 +51,20 @@ header {
   --border-right: 6px;
   --text-stroke-color: var(--white);
   --animation-color: var(--white);
-  --fs-size: 2em;
+  --fs-size: 3rem;
   font-weight: 700;
   letter-spacing: 3px;
-  font-size: 2.5em;
+  font-size: var(--fs-size);
   position: relative;
   color: transparent;
   -webkit-text-stroke: 1px var(--text-stroke-color);
 }
 .hover-text {
   position: absolute;
+  display: flex;
   color: #ffffff;
   width: 0%;
+  white-space: nowrap;
   inset: 0;
   border-right: var(--border-right) solid var(--animation-color);
   overflow: hidden;
@@ -180,9 +182,14 @@ header {
 /* Second part */
 .Služby-list {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   gap: 2em;
   flex-wrap: wrap;
+}
+.Služby-whole {
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
 }
 .Služby-item {
   background: var(--white);
