@@ -1,119 +1,169 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="sk-SK">
-    <head>
-        <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0"/>
-        <title>GEO GPS</title>
-        <link rel="stylesheet" href="style.css">
-        <link rel="website icon" href="images/">
-    </head>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GEO GPS</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" type="image/png" href="/images/favicon.png" />
+  </head>
 
-    <body>
-        <button class="button_back_to_top" onclick="scrollToTop()">
-            <svg class="svgIcon" viewBox="0 0 384 512">
-                <path
-                d="M214.6 41.4c-12.5-12.5-32.8-12.5-45.3 0l-160 160c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L160 141.2V448c0 17.7 14.3 32 32 32s32-14.3 32-32V141.2L329.4 246.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3l-160-160z"
-                ></path>
-            </svg>
+  <body>
+    <button class="button_back_to_top" onclick="scrollToTop()">
+      <svg class="svgIcon" viewBox="0 0 384 512">
+        <path
+          d="M214.6 41.4c-12.5-12.5-32.8-12.5-45.3 0l-160 160c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L160 141.2V448c0 17.7 14.3 32 32 32s32-14.3 32-32V141.2L329.4 246.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3l-160-160z"
+        ></path>
+      </svg>
+    </button>
+
+    <header>
+      <button class="title">
+        <span class="actual-text">&nbsp;GEO GPS&nbsp;</span>
+        <span aria-hidden="true" class="hover-text">&nbsp;GEO GPS&nbsp;</span>
+      </button>
+      <nav>
+        <button class="nav_button" onclick="scrollToSection('O_nas')">
+          O nás
         </button>
+        <button class="nav_button" onclick="scrollToSection('Sluzby')">
+          Služby
+        </button>
+        <button class="nav_button" onclick="scrollToSection('Kontakt')">
+          Kontakt
+        </button>
+      </nav>
+    </header>
 
-        <header>
-            <button class="title">
-                <span class="actual-text">&nbsp;GEO GPS&nbsp;</span>
-                <span aria-hidden="true" class="hover-text">&nbsp;GEO GPS&nbsp;</span>
-            </button>
-            <nav>
-                <button class="nav_button" onclick="scrollToSection('O_nás')">O nás</button>
-                <button class="nav_button" onclick="scrollToSection('Služby')">Služby</button>
-                <button class="nav_button" onclick="scrollToSection('Kontakt')">Kontakt</button>
-            </nav>
-        </header>
+    <main>
+      <section class="O_nas" id="O_nas">
+        <div class="O_nas-text">
+          <h2>Presné meranie a vytyčovanie</h2>
+          <p>
+            Odborné geodetické služby s najmodernejšou technológiou pre presné
+            zememeračské práce, mapovanie nehnuteľností a vymedzovanie hraníc.
+            Dôveryhodná spoločnosť, ktorej profesionáli dôverujú už viac ako dve
+            desaťročia.
+          </p>
+          <div class="statistiky">
+            <div><span>20+</span> rokov skúseností</div>
+            <div><span>500+</span> dokončených projektov</div>
+            <div><span>99%</span> miera presnosti</div>
+          </div>
+        </div>
+        <div class="image">
+          <img src="survey-person.jpg" alt="Priamo v akcii" />
+        </div>
+      </section>
 
-        <section class="O_nás" id="O_nás">
-            <div class="O_nás-text">
-                <h2>Presné meranie a vytyčovanie</h2>
-                <p>Odborné geodetické služby s najmodernejšou technológiou pre presné zememeračské práce, mapovanie nehnuteľností a vymedzovanie hraníc. Dôveryhodná spoločnosť, ktorej profesionáli dôverujú už viac ako dve desaťročia.</p>
-                <div class="štatistiky">
-                    <div><span>20+</span> rokov skúseností</div>
-                    <div><span>500+</span> dokončených projektov</div>
-                    <div><span>99%</span> miera presnosti</div>
-                </div>
+      <section class="Sluzby" id="Sluzby">
+        <div class="Sluzby-text">
+          <h2>Naše služby</h2>
+          <div class="Sluzby-list">
+            <div class="Sluzby-whole">
+              <div class="Sluzby-item">
+                <h3>Inžinierska geodézia</h3>
+                <p>
+                  Komplexné geodetické služby pre inžinierske projekty vrátane:
+                </p>
+                <ul>
+                  <li>
+                    Podklady pre projektanta - polohopisné a výškopisné
+                    zameranie územia
+                  </li>
+                  <li>
+                    Presné vytyčovanie základových pätiek stavieb
+                    (domy,haly,...)
+                  </li>
+                  <li>Porealizačné zameranie inžinierskych sieti</li>
+                </ul>
+              </div>
+              <div class="Sluzby-item">
+                <h3>Geometrické plány</h3>
+                <p>
+                  Vypracovanie geometrických plánov pre rôzne účely vrátane
+                  majetkoprávneho usporiadania, kolaudácie stavieb, oddelenia
+                  pozemkov a ďalších špecifických potrieb.
+                </p>
+              </div>
             </div>
-            <div class="image">
-                <img src="survey-person.jpg" alt="Priamo v akcii">
+            <div class="Sluzby-item">
+              <h3>Vytyčovanie pozemkov</h3>
+              <p>Presné vytyčovanie pozemkov a inžinierskych sietí v terene.</p>
             </div>
-        </section>
-
-        <section class="Služby" id="Služby">
-            <div class="Služby-text">
-                <h2>Naše služby</h2>
-                <div class="Služby-list">
-                    <div class="Služby-item">
-                        <h3>Geometrické plány</h3>
-                        <p>Vypracovanie geometrických plánov pre rôzne účely vrátane majetkoprávneho usporiadania, kolaudácie stavieb, oddelenia pozemkov a ďalších špecifických potrieb.</p>
-                    </div>
-                    <div class="Služby-item">
-                        <h3>Vytyčovanie pozemkov</h3>
-                        <p>Presné vytyčovanie pozemkov a inžinierskych sietí v terene.</p>
-                    </div>
-                    <div class="Služby-whole">
-                        <div class="Služby-item">
-                            <h3>Inžinierska geodézia</h3>
-                            <p>Komplexné geodetické služby pre inžinierske projekty vrátane:</p>
-                            <ul>
-                                <li>Podklady pre projektanta - polohopisné a výškopisné zameranie územia</li>
-                                <li>Presné vytyčovanie základových pätiek stavieb (domy,haly,...)</li>
-                                <li>Porealizačné zameranie inžinierskych sieti</li>
-                            </ul>
-                        </div>
-                        <div class="Služby-item">
-                            <h3>Vybavenie</h3>
-                            <p>Používame najmodernejšie geodetické nástroje vrátane GPS prijímačov, totálnych staníc a softvéru pre presné meranie a spracovanie dát.</p>
-                        </div>
-                    </div>
-
-                </div>
+            <div class="Sluzby-item">
+              <h3>Vybavenie</h3>
+              <p>
+                Používame najmodernejšie geodetické nástroje vrátane GPS
+                prijímačov a softvéru pre presné meranie a spracovanie dát.
+              </p>
             </div>
-            <div class="image">
-                <img src="/images/equipment.jpg" alt="Ilustračný obrázok nášho vybavenia">
-        </section>
+          </div>
+        </div>
+        <div class="image">
+          <img
+            src="/images/equipment.jpg"
+            alt="Ilustračný obrázok nášho vybavenia"
+          />
+        </div>
+      </section>
 
-        <section class="Kontakt-banner" id="Kontakt">
-            <div class="Kontakt-text">
-                <h2>Pripravení začať váš projekt?</h2>
-                <p>Kontaktujte nás ešte dnes pre bezplatnú konzultáciu a zistite, ako naša geodetická odbornosť môže priniesť presnosť aj vášmu projektu.</p>
-                <div class="Kontakt-info">
-                    <p><strong>Telefónne číslo:</strong> +421 905 243 976</p>
-                    <p><strong>Email:</strong> marianfedorjak@gmail.com</p>
-                    <p><strong>Adresa:</strong> GEO GPS s.r.o., Kisdyho182/8, 040 01 Košice</p>
-                </div>
-            </div>
-            <div class="image">
-                <img src="contact.jpg" alt="Kontaktujte nás">
-            </div>
-        </section>
+      <section class="Kontakt-banner" id="Kontakt">
+        <div class="Kontakt-text">
+          <h2>Pripravení začať váš projekt?</h2>
+          <p>
+            Kontaktujte nás ešte dnes pre bezplatnú konzultáciu a zistite, ako
+            naša geodetická odbornosť môže priniesť presnosť aj vášmu projektu.
+          </p>
+          <div class="Kontakt-info">
+            <p><strong>Telefónne číslo:</strong> +421 905 243 976</p>
+            <p><strong>Email:</strong> marianfedorjak@gmail.com</p>
+            <p>
+              <strong>Adresa:</strong> GEO GPS s.r.o., Kisdyho182/8, 040 01
+              Košice
+            </p>
+          </div>
+        </div>
+        <div class="image">
+          <img src="contact.jpg" alt="Kontaktujte nás" />
+        </div>
+      </section>
+    </main>
 
-        <footer class="site-footer">
-            <div class="footer-content">
-                <div class="footer-logo">
-                    <h1>GEO GPS</h1>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                © 2026 GEO GPS s.r.o. Všetky práva vyhradené.
-            </div>
-        </footer>
+    <footer class="site-footer">
+      <div class="footer-content">
+        <div class="footer-logo">
+          <h1>GEO GPS</h1>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        © 2026 GEO GPS s.r.o. Všetky práva vyhradené.
+      </div>
+    </footer>
 
-        <script>
-            function scrollToSection(id) {
-                const section = document.getElementById(id);
-                if (section) {
-                    section.scrollIntoView({ behavior: 'smooth' });
-                }
-            }
+    <script>
+      function scrollToSection(id) {
+        const section = document.getElementById(id);
+        if (section) {
+          section.scrollIntoView({ behavior: "smooth" });
+        }
+      }
 
-            function scrollToTop() {
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-            }
-        </script>
-    </body>
+      function scrollToTop() {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }
+
+      function toggleDarkMode() {
+        const isDarkMode = document.body.classList.toggle("dark-mode");
+        localStorage.setItem("darkMode", isDarkMode);
+      }
+
+      function loadDarkModePreference() {
+        const darkModeSetting = localStorage.getItem("darkMode");
+        if (darkModeSetting === "true") {
+          document.body.classList.add("dark-mode");
+        }
+      }
+    </script>
+  </body>
 </html>

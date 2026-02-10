@@ -1,6 +1,6 @@
 /* Reset and base styles */
-:root{
-  --primary-00: #0E4690;
+:root {
+  --primary-00: #0e4690;
   --primary-25: #007498;
   --primary-50: #00bca1;
   --primary-100: #acfa70;
@@ -12,13 +12,32 @@
   --link: #004080;
   --muted: #333;
 }
-* {
+/* Dark mode variables */
+body.dark-mode {
+  --primary-00: #0e4690;
+  --primary-25: #007498;
+  --primary-50: #00bca1;
+  --primary-100: #acfa70;
+  --accent: #0e4691;
+  --bg-page: #121212;
+  --card-bg: #1e1e1e;
+  --text: #f9f9f9;
+  --white: #ffffff;
+  --link: #66a3ff;
+  --muted: #ccc;
+}
+html,
+body {
   margin: 0;
   box-sizing: border-box;
-  font-family: 'Segoe UI', Arial, sans-serif;
-}
-html, body {
   height: 100%;
+}
+body,
+button,
+input,
+select,
+textarea {
+  font-family: "Segoe UI", Arial, sans-serif;
 }
 body {
   min-height: 100vh;
@@ -37,9 +56,15 @@ header {
   justify-content: space-between;
   align-items: center;
   background-size: 300% 300%;
-  background-image: linear-gradient(-45deg, var(--primary-00) 0%, var(--primary-25) 25%, var(--primary-50) 51%, var(--primary-100) 100%);
+  background-image: linear-gradient(
+    -45deg,
+    var(--primary-00) 0%,
+    var(--primary-25) 25%,
+    var(--primary-50) 51%,
+    var(--primary-100) 100%
+  );
   -webkit-animation: AnimateBG 20s ease infinite;
-          animation: AnimateBG 20s ease infinite;
+  animation: AnimateBG 20s ease infinite;
 }
 .title {
   margin: 0;
@@ -73,7 +98,7 @@ header {
 }
 .title:hover .hover-text {
   width: 100%;
-  filter: drop-shadow(0 0 23px #0E4690);
+  filter: drop-shadow(0 0 23px #0e4690);
 }
 .nav_button {
   padding: 0.8em 2em;
@@ -81,7 +106,7 @@ header {
   cursor: pointer;
   border: none;
   background-color: var(--white);
-  box-shadow:  0 0 8px var(--accent);
+  box-shadow: 0 0 8px var(--accent);
   letter-spacing: 1.5px;
   text-transform: uppercase;
   font-size: 1.1em;
@@ -104,16 +129,15 @@ header {
   letter-spacing: 3px;
   background-color: #0e4691;
   color: #ffffff;
-  box-shadow:  0px 7px 29px 4px #0e4691;
+  box-shadow: 0px 7px 29px 4px #0e4691;
   transform: translateY(10px);
   transition: 100ms;
 }
 
 /* Main sections: O_nás, Služby, Kontakt-banner */
-.O_nás,
-.Služby,
+.O_nas,
+.Sluzby,
 .Kontakt-banner {
-  line-clamp: 80%;
   padding: 5rem 3rem;
   display: flex;
   align-items: center;
@@ -125,27 +149,26 @@ header {
 }
 
 /* Section text containers */
-.O_nás-text,
-.Služby-text,
+.O_nas-text,
+.Sluzby-text,
 .Kontakt-text {
   flex: 1;
-  line-clamp: 80%;
   background: var(--card-bg);
   border-radius: 18px;
   box-shadow: 0 4px 32px #0e4691;
   padding: 2.5rem 2rem;
   margin: 0;
 }
-.O_nás h2,
-.Služby h2,
+.O_nas h2,
+.Sluzby h2,
 .Kontakt-banner h2 {
   font-size: 2.2em;
   margin-bottom: 0.7em;
   color: #0e4691;
   font-weight: 700;
 }
-.O_nás p,
-.Služby p,
+.O_nas p,
+.Sluzby p,
 .Kontakt-banner p {
   font-size: 1.15em;
   margin-bottom: 1.5em;
@@ -168,30 +191,30 @@ header {
 }
 
 /* First part */
-.štatistiky {
+.statistiky {
   display: flex;
   gap: 2em;
   font-weight: bold;
   margin-top: 1em;
   color: #0e4691;
 }
-.štatistiky span {
+.statistiky span {
   color: #0e4691;
 }
 
 /* Second part */
-.Služby-list {
+.Sluzby-list {
   display: flex;
   justify-content: center;
   gap: 2em;
   flex-wrap: wrap;
 }
-.Služby-whole {
+.Sluzby-whole {
   display: flex;
   flex-direction: column;
   gap: 2em;
 }
-.Služby-item {
+.Sluzby-item {
   background: var(--white);
   padding: 1.5em;
   border-radius: 8px;
@@ -199,20 +222,20 @@ header {
   flex: 1 1 250px;
   min-width: 250px;
 }
-.Služby-item h3 {
+.Sluzby-item h3 {
   font-size: 1.3em;
   margin-bottom: 0.5em;
   color: #004080;
   font-weight: 700;
 }
-.Služby-item p {
+.Sluzby-item p {
   margin-bottom: 1em;
 }
-.Služby-item ul {
+.Sluzby-item ul {
   list-style-type: disc;
   padding-left: 1.2em;
 }
-.Služby-item ul li {
+.Sluzby-item ul li {
   margin-bottom: 0.5em;
 }
 
@@ -228,9 +251,15 @@ header {
   padding: 3em 2em 2em;
   font-size: 1.25em;
   background-size: 300% 300%;
-  background-image: linear-gradient(-45deg, var(--primary-00) 0%, var(--primary-25) 25%, var(--primary-50) 51%, var(--primary-100) 100%);
+  background-image: linear-gradient(
+    -45deg,
+    var(--primary-00) 0%,
+    var(--primary-25) 25%,
+    var(--primary-50) 51%,
+    var(--primary-100) 100%
+  );
   -webkit-animation: AnimateBG 20s ease infinite;
-          animation: AnimateBG 20s ease infinite;
+  animation: AnimateBG 20s ease infinite;
   color: var(--white);
   display: flex;
   flex-direction: column;
@@ -270,7 +299,10 @@ header {
   justify-content: center;
   box-shadow: 0 0 0 4px var(--accent);
   cursor: pointer;
-  transition: width 0.3s, border-radius 0.3s, background 0.3s;
+  transition:
+    width 0.3s,
+    border-radius 0.3s,
+    background 0.3s;
   overflow: hidden;
   position: fixed;
   bottom: 32px;
@@ -285,7 +317,9 @@ header {
 .svgIcon {
   width: 24px;
   height: 24px;
-  transition: opacity 0.3s, transform 0.3s;
+  transition:
+    opacity 0.3s,
+    transform 0.3s;
   color: inherit;
 }
 .svgIcon path {
@@ -303,7 +337,10 @@ header {
 }
 .button_back_to_top::before {
   position: absolute;
-  left: 0; right: 0; top: 50%; transform: translateY(-50%);
+  left: 0;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
   content: "";
   text-transform: uppercase;
   color: #fff;
@@ -311,7 +348,9 @@ header {
   text-align: center;
   opacity: 0;
   pointer-events: none;
-  transition: font-size 0.3s, opacity 0.3s;
+  transition:
+    font-size 0.3s,
+    opacity 0.3s;
 }
 .button_back_to_top:hover::before {
   content: "Späť hore";
@@ -326,7 +365,7 @@ button:focus-visible {
   outline-offset: 3px;
   border-radius: 6px;
 }
-.Služby-item:focus-visible {
+.Sluzby-item:focus-visible {
   outline: 3px solid var(--accent);
   outline-offset: 4px;
   box-shadow: none;
@@ -355,6 +394,34 @@ button:focus-visible {
   box-shadow: 0 0 0 6px color-mix(in srgb, var(--accent) 30%, transparent);
 }
 
+/* light/dark mode toggle button */
+.light-dark_mode {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: var(--white);
+  border: 2px solid var(--accent);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s;
+  font-size: 1.5em;
+}
+
+.light-dark_mode::before {
+  content: "☀️";
+}
+
+body.dark-mode .light-dark_mode::before {
+  content: "🌙";
+}
+
+.light-dark-mode:hover {
+  background: var(--accent);
+  transform: scale(1.1);
+}
+
 /* respect users' reduced-motion preference */
 @media (prefers-reduced-motion: reduce) {
   * {
@@ -373,18 +440,30 @@ button:focus-visible {
   }
 }
 @-webkit-keyframes AnimateBG {
-  0% {background-position: 0% 50%;}
-  50% {background-position: 100% 50%;}
-  100% {background-position: 0% 50%;}
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 @keyframes AnimateBG {
-  0% {background-position: 0% 50%;}
-  50% {background-position: 100% 50%;}
-  100% {background-position: 0% 50%;}
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 @media (max-width: 900px) {
-  .O_nás,
-  .Služby,
+  .O_nas,
+  .Sluzby,
   .Kontakt-banner {
     flex-direction: column;
     padding: 2em 1em;
@@ -395,7 +474,7 @@ button:focus-visible {
   .image img {
     max-width: 90vw;
   }
-  .Služby-list {
+  .Sluzby-list {
     flex-direction: column;
     gap: 1.5em;
   }
