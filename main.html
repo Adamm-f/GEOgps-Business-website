@@ -23,6 +23,22 @@
         <span aria-hidden="true" class="hover-text">&nbsp;GEO GPS&nbsp;</span>
       </button>
       <nav>
+        <button class="light-dark_mode" onclick="toggleDarkMode()" aria-label="Toggle dark mode">
+          <svg class="sun-icon" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+          <svg class="moon-icon" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+        </button>
         <button class="nav_button" onclick="scrollToSection('O_nas')">
           O nás
         </button>
@@ -46,8 +62,8 @@
             desaťročia.
           </p>
           <div class="statistiky">
-            <div><span>20+</span> rokov skúseností</div>
-            <div><span>500+</span> dokončených projektov</div>
+            <div><span>30+</span> rokov skúseností</div>
+            <div><span>2500+</span> dokončených projektov</div>
             <div><span>99%</span> miera presnosti</div>
           </div>
         </div>
@@ -142,6 +158,29 @@
     </footer>
 
     <script>
+      // Dark mode toggle
+      function toggleDarkMode() {
+        document.body.classList.toggle("dark-mode");
+        
+        // Save preference to localStorage
+        if (document.body.classList.contains("dark-mode")) {
+          localStorage.setItem("darkMode", "enabled");
+        } else {
+          localStorage.setItem("darkMode", "disabled");
+        }
+      }
+
+      // Check for saved dark mode preference on page load
+      window.addEventListener("DOMContentLoaded", function() {
+        const darkModePreference = localStorage.getItem("darkMode");
+        const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+        
+        // Enable dark mode if saved or if system prefers dark mode
+        if (darkModePreference === "enabled" || (darkModePreference === null && prefersDark)) {
+          document.body.classList.add("dark-mode");
+        }
+      });
+
       function scrollToSection(id) {
         const section = document.getElementById(id);
         if (section) {
@@ -151,18 +190,6 @@
 
       function scrollToTop() {
         window.scrollTo({ top: 0, behavior: "smooth" });
-      }
-
-      function toggleDarkMode() {
-        const isDarkMode = document.body.classList.toggle("dark-mode");
-        localStorage.setItem("darkMode", isDarkMode);
-      }
-
-      function loadDarkModePreference() {
-        const darkModeSetting = localStorage.getItem("darkMode");
-        if (darkModeSetting === "true") {
-          document.body.classList.add("dark-mode");
-        }
       }
     </script>
   </body>

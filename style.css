@@ -8,24 +8,28 @@
   --bg-page: #f9f9f9;
   --card-bg: #f5f8ff;
   --text: #222;
-  --white: #ffffff;
-  --link: #004080;
+  --main-color: #fff;
+  --title-color: #ffffff;
+  --link: #66b3ff;
   --muted: #333;
 }
-/* Dark mode variables */
+
+/* Dark mode styles */
 body.dark-mode {
-  --primary-00: #0e4690;
-  --primary-25: #007498;
-  --primary-50: #00bca1;
-  --primary-100: #acfa70;
-  --accent: #0e4691;
-  --bg-page: #121212;
-  --card-bg: #1e1e1e;
-  --text: #f9f9f9;
-  --white: #ffffff;
-  --link: #66a3ff;
-  --muted: #ccc;
+  --primary-00: #0a3266;
+  --primary-25: #005670;
+  --primary-50: #006e5e;
+  --primary-100: #304520;
+  --accent: #3580c3;
+  --bg-page: #1a1a1a;
+  --card-bg: #2a2a2a;
+  --text: #e4e4e4;
+  --main-color: #000;
+  --title-color: #000000;
+  --link: #004080;
+  --muted: #b0b0b0;
 }
+
 html,
 body {
   margin: 0;
@@ -47,6 +51,7 @@ body {
   color: var(--text);
   font-size: 1.15em;
   line-height: 1.6;
+  transition: background-color 0.5s ease, color 0.5s ease;
 }
 
 /* Header styles */
@@ -74,8 +79,8 @@ header {
   cursor: default;
   border: none;
   --border-right: 6px;
-  --text-stroke-color: var(--white);
-  --animation-color: var(--white);
+  --text-stroke-color: var(--title-color);
+  --animation-color: var(--title-color);
   --fs-size: 3rem;
   font-weight: 700;
   letter-spacing: 3px;
@@ -87,7 +92,7 @@ header {
 .hover-text {
   position: absolute;
   display: flex;
-  color: #ffffff;
+  color: var(--main-color);
   width: 0%;
   white-space: nowrap;
   inset: 0;
@@ -98,15 +103,20 @@ header {
 }
 .title:hover .hover-text {
   width: 100%;
-  filter: drop-shadow(0 0 23px #0e4690);
+  filter: drop-shadow(0 0 23px var(--animation-color));
+}
+nav {
+  display: flex;
+  align-items: center;
 }
 .nav_button {
   padding: 0.8em 2em;
   border-radius: 50px;
   cursor: pointer;
   border: none;
-  background-color: var(--white);
+  background-color: var(--card-bg);
   box-shadow: 0 0 8px var(--accent);
+  color: var(--text);
   letter-spacing: 1.5px;
   text-transform: uppercase;
   font-size: 1.1em;
@@ -121,15 +131,15 @@ header {
 }
 .nav_button:hover {
   letter-spacing: 3px;
-  background-color: #0e4691;
-  color: #ffffff;
-  box-shadow: #0e4691 0px 7px 29px 4px;
+  background-color: var(--accent);
+  color: var(--title-color);
+  box-shadow: var(--accent) 0px 7px 29px 4px;
 }
 .nav_button:active {
   letter-spacing: 3px;
-  background-color: #0e4691;
-  color: #ffffff;
-  box-shadow: 0px 7px 29px 4px #0e4691;
+  background-color: var(--accent);
+  color: var(--main-color);
+  box-shadow: 0px 7px 29px 4px var(--accent);
   transform: translateY(10px);
   transition: 100ms;
 }
@@ -144,8 +154,8 @@ header {
   gap: 4em;
   width: 100%;
   box-sizing: border-box;
-  background: #ffffff;
-  border-top: 10px solid #0e4691;
+  background: transparent;
+  border-top: 5px solid var(--link);
 }
 
 /* Section text containers */
@@ -155,24 +165,26 @@ header {
   flex: 1;
   background: var(--card-bg);
   border-radius: 18px;
-  box-shadow: 0 4px 32px #0e4691;
+  box-shadow: 0 4px 32px var(--accent);
   padding: 2.5rem 2rem;
   margin: 0;
+  transition: background-color 0.5s ease, box-shadow 0.5s ease, color 0.5s ease;
 }
 .O_nas h2,
 .Sluzby h2,
 .Kontakt-banner h2 {
   font-size: 2.2em;
   margin-bottom: 0.7em;
-  color: #0e4691;
+  color: var(--accent);
   font-weight: 700;
+  transition: color 0.5s ease;
 }
 .O_nas p,
 .Sluzby p,
 .Kontakt-banner p {
   font-size: 1.15em;
   margin-bottom: 1.5em;
-  color: #222;
+  color: var(--text);
 }
 
 /* Images */
@@ -186,7 +198,7 @@ header {
   width: 100%;
   max-width: 400px;
   border-radius: 16px;
-  box-shadow: 0 4px 32px #0001;
+  box-shadow: 0 4px 32px var(--accent);
   object-fit: cover;
 }
 
@@ -196,10 +208,12 @@ header {
   gap: 2em;
   font-weight: bold;
   margin-top: 1em;
-  color: #0e4691;
+  color: var(--accent);
+  transition: color 0.5s ease;
 }
 .statistiky span {
-  color: #0e4691;
+  color: var(--accent);
+  transition: color 0.5s ease;
 }
 
 /* Second part */
@@ -215,18 +229,20 @@ header {
   gap: 2em;
 }
 .Sluzby-item {
-  background: var(--white);
+  background: var(--card-bg);
   padding: 1.5em;
   border-radius: 8px;
   box-shadow: 0 0 10px #0001;
   flex: 1 1 250px;
   min-width: 250px;
+  transition: background-color 0.5s ease, color 0.5s ease, box-shadow 0.5s ease;
 }
 .Sluzby-item h3 {
   font-size: 1.3em;
   margin-bottom: 0.5em;
-  color: #004080;
+  color: var(--accent);
   font-weight: 700;
+  transition: color 0.5s ease;
 }
 .Sluzby-item p {
   margin-bottom: 1em;
@@ -260,7 +276,7 @@ header {
   );
   -webkit-animation: AnimateBG 20s ease infinite;
   animation: AnimateBG 20s ease infinite;
-  color: var(--white);
+  color: var(--main-color);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -280,7 +296,7 @@ header {
 .footer-bottom {
   text-align: center;
   font-size: 1.1em;
-  border-top: 1px solid #ffffff;
+  border-top: 1px solid var(--main-color);
   padding-top: 2em;
   margin-top: 0;
   width: 100%;
@@ -291,7 +307,7 @@ header {
   width: 50px;
   height: 50px;
   border-radius: 50%;
-  background: var(--white);
+  background: var(--card-bg);
   border: none;
   font-weight: 600;
   display: flex;
@@ -329,7 +345,7 @@ header {
   width: 140px;
   border-radius: 50px;
   background: var(--accent);
-  color: var(--white);
+  color: var(--main-color);
 }
 .button_back_to_top:hover .svgIcon {
   opacity: 0;
@@ -343,7 +359,7 @@ header {
   transform: translateY(-50%);
   content: "";
   text-transform: uppercase;
-  color: #fff;
+  color: var(--text);
   font-size: 0px;
   text-align: center;
   opacity: 0;
@@ -354,6 +370,7 @@ header {
 }
 .button_back_to_top:hover::before {
   content: "Späť hore";
+  color: var(--main-color);
   font-size: 1.1em;
   opacity: 1;
 }
@@ -387,7 +404,7 @@ button:focus-visible {
   width: auto;
   height: auto;
   padding: 0.5rem 1rem;
-  background: var(--white);
+  background: var(--card-bg);
   color: var(--accent);
   border-radius: 6px;
   z-index: 99999;
@@ -399,27 +416,45 @@ button:focus-visible {
   width: 50px;
   height: 50px;
   border-radius: 50%;
-  background: var(--white);
-  border: 2px solid var(--accent);
+  background: var(--card-bg);
+  border: none;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: all 0.3s;
-  font-size: 1.5em;
+  transition: all 0.5s ease;
+  margin-left: 1rem;
+  box-shadow: 0 0 8px var(--accent);
+  margin-right: 1rem;
+  outline: none;
+  color: var(--accent);
 }
 
-.light-dark_mode::before {
-  content: "☀️";
+.light-dark_mode .sun-icon {
+  display: block;
 }
 
-body.dark-mode .light-dark_mode::before {
-  content: "🌙";
+.light-dark_mode .moon-icon {
+  display: none;
+  position: absolute;
 }
 
-.light-dark-mode:hover {
+body.dark-mode .light-dark_mode .sun-icon {
+  display: none;
+}
+
+body.dark-mode .light-dark_mode .moon-icon {
+  display: block;
+}
+
+.light-dark_mode:hover {
   background: var(--accent);
   transform: scale(1.1);
+  color: var(--card-bg);
+}
+
+.light-dark_mode:focus-visible {
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--accent) 40%, transparent);
 }
 
 /* respect users' reduced-motion preference */
