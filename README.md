@@ -1,2 +1,2 @@
 # GEOgps
-A website for my dad's business, that specialize in geodesy.
+A website for my dad's business that specializes in geodesy.
