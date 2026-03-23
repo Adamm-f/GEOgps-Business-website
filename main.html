@@ -3,9 +3,30 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>GEO GPS</title>
-    <link rel="stylesheet" href="style.css" />
+    <title>GEO GPS — geodetické služby, vytyčovanie pozemkov | Košice</title>
+    <meta
+      name="description"
+      content="GEO GPS s.r.o. — presné geodetické služby v Košiciach: vytyčovanie pozemkov, geometrické plány, inžinierska geodézia a merania. Kontaktujte nás pre bezplatnú konzultáciu."
+    />
+    <meta
+      name="keywords"
+      content="geodetické služby, vytyčovanie pozemkov, geometrický plán, geodet Košice, meranie pozemku"
+    />
+    <link rel="canonical" href="https://www.geogps.sk/" />
+    <link
+      rel="preload"
+      href="style.css"
+      as="style"
+      onload="this.rel = 'stylesheet'"
+    />
+    <noscript><link rel="stylesheet" href="style.css" /></noscript>
     <link rel="icon" type="image/png" href="/images/favicon.png" />
+    <link
+      rel="sitemap"
+      type="application/xml"
+      title="Sitemap"
+      href="/sitemap.xml"
+    />
   </head>
 
   <body>
@@ -23,8 +44,20 @@
         <span aria-hidden="true" class="hover-text">&nbsp;GEO GPS&nbsp;</span>
       </button>
       <nav>
-        <button class="light-dark_mode" onclick="toggleDarkMode()" aria-label="Toggle dark mode">
-          <svg class="sun-icon" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
+        <button
+          class="light-dark_mode"
+          onclick="toggleDarkMode()"
+          aria-label="Toggle dark mode"
+        >
+          <svg
+            class="sun-icon"
+            viewBox="0 0 24 24"
+            width="24"
+            height="24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
             <circle cx="12" cy="12" r="5"></circle>
             <line x1="12" y1="1" x2="12" y2="3"></line>
             <line x1="12" y1="21" x2="12" y2="23"></line>
@@ -35,7 +68,15 @@
             <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
             <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
           </svg>
-          <svg class="moon-icon" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
+          <svg
+            class="moon-icon"
+            viewBox="0 0 24 24"
+            width="24"
+            height="24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
             <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
           </svg>
         </button>
@@ -54,7 +95,7 @@
     <main>
       <section class="O_nas" id="O_nas">
         <div class="O_nas-text">
-          <h2>Presné meranie a vytyčovanie</h2>
+          <h2>Presné meranie a vytyčovanie — geodetické služby (Košice)</h2>
           <p>
             Odborné geodetické služby s najmodernejšou technológiou pre presné
             zememeračské práce, mapovanie nehnuteľností a vymedzovanie hraníc.
@@ -71,7 +112,7 @@
 
       <section class="Sluzby" id="Sluzby">
         <div class="Sluzby-text">
-          <h2>Naše služby</h2>
+          <h2>Naše služby — geodetické merania a geometrické plány</h2>
           <div class="Sluzby-list">
             <div class="Sluzby-whole">
               <div class="Sluzby-item">
@@ -115,8 +156,11 @@
         </div>
         <div class="image">
           <img
-            src="/images/equipment.jpg"
-            alt="Ilustračný obrázok nášho vybavenia"
+            src="/images/geodeticke-vybavenie-gps.jpg"
+            alt="Vybavenie geodetickej firmy - GPS prijímače a meracie nástroje"
+            width="600"
+            height="450"
+            loading="lazy"
           />
         </div>
       </section>
@@ -138,18 +182,28 @@
           </div>
         </div>
         <div class="form-container">
-          <form action="mailto:marianfedorjak@gmail.com" method="post" class="form">
+          <form
+            action="mailto:marianfedorjak@gmail.com"
+            method="post"
+            class="form"
+          >
             <div class="form-group">
               <label for="name">Meno</label>
-              <input type="text" id="name" name="name">
+              <input type="text" id="name" name="name"/>
             </div>
             <div class="form-group">
-             <label for="email">Email</label>
-             <input type="text" id="email" name="email" required="">
+              <label for="email">Email</label>
+              <input type="text" id="email" name="email" required="" />
             </div>
             <div class="form-group">
               <label for="textarea">Popíš, akú službu potrebuješ:</label>
-              <textarea name="textarea" id="textarea" rows="10" cols="50" required=""></textarea>
+              <textarea
+                name="textarea"
+                id="textarea"
+                rows="10"
+                cols="50"
+                required=""
+              ></textarea>
             </div>
             <button class="form-submit-btn" type="submit">Odoslať</button>
           </form>
@@ -169,11 +223,9 @@
     </footer>
 
     <script>
-      // Dark mode toggle
       function toggleDarkMode() {
         document.body.classList.toggle("dark-mode");
-        
-        // Save preference to localStorage
+
         if (document.body.classList.contains("dark-mode")) {
           localStorage.setItem("darkMode", "enabled");
         } else {
@@ -181,13 +233,16 @@
         }
       }
 
-      // Check for saved dark mode preference on page load
-      window.addEventListener("DOMContentLoaded", function() {
+      window.addEventListener("DOMContentLoaded", function () {
         const darkModePreference = localStorage.getItem("darkMode");
-        const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-        
-        // Enable dark mode if saved or if system prefers dark mode
-        if (darkModePreference === "enabled" || (darkModePreference === null && prefersDark)) {
+        const prefersDark = window.matchMedia(
+          "(prefers-color-scheme: dark)",
+        ).matches;
+
+        if (
+          darkModePreference === "enabled" ||
+          (darkModePreference === null && prefersDark)
+        ) {
           document.body.classList.add("dark-mode");
         }
       });
@@ -201,6 +256,24 @@
 
       function scrollToTop() {
         window.scrollTo({ top: 0, behavior: "smooth" });
+      }
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "GEO GPS s.r.o.",
+        "telephone": "+421905243976",
+        "email": "mailto:marianfedorjak@gmail.com",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Kisdyho 182/8",
+          "addressLocality": "Košice",
+          "postalCode": "04001",
+          "addressCountry": "SK"
+        },
+        "url": "https://www.geogps.sk/",
+        "description": "Presné geodetické služby: vytyčovanie pozemkov, geometrické plány, inžinierska geodézia."
       }
     </script>
   </body>

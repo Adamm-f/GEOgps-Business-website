@@ -51,7 +51,9 @@ body {
   color: var(--text);
   font-size: 1.15em;
   line-height: 1.6;
-  transition: background-color 0.5s ease, color 0.5s ease;
+  transition:
+    background-color 0.5s ease,
+    color 0.5s ease;
 }
 
 /* Header styles */
@@ -168,7 +170,10 @@ nav {
   box-shadow: 0 4px 32px var(--accent);
   padding: 2.5rem 2rem;
   margin: 0;
-  transition: background-color 0.5s ease, box-shadow 0.5s ease, color 0.5s ease;
+  transition:
+    background-color 0.5s ease,
+    box-shadow 0.5s ease,
+    color 0.5s ease;
 }
 .O_nas h2,
 .Sluzby h2,
@@ -189,14 +194,11 @@ nav {
 
 /* Images */
 .image {
-  flex: 1;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 .image img {
-  width: 100%;
-  max-width: 400px;
   border-radius: 16px;
   box-shadow: 0 4px 32px var(--accent);
   object-fit: cover;
@@ -235,7 +237,10 @@ nav {
   box-shadow: 0 0 10px #0001;
   flex: 1 1 250px;
   min-width: 250px;
-  transition: background-color 0.5s ease, color 0.5s ease, box-shadow 0.5s ease;
+  transition:
+    background-color 0.5s ease,
+    color 0.5s ease,
+    box-shadow 0.5s ease;
 }
 .Sluzby-item h3 {
   font-size: 1.3em;
@@ -315,7 +320,8 @@ nav {
   width: 100%;
   max-width: none;
   margin: 0;
-  box-shadow: 0 4px 32px var(--accent);}
+  box-shadow: 0 4px 32px var(--accent);
+}
 
 .form {
   width: 100%;
@@ -397,7 +403,6 @@ textarea:focus {
   box-shadow: 0 0 0 4px color-mix(in srgb, var(--accent) 40%, transparent);
   transform: translateY(-2px);
 }
-
 
 /* Back to top button */
 .button_back_to_top {
