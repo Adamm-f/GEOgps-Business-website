@@ -67,9 +67,6 @@
             <div><span>99%</span> miera presnosti</div>
           </div>
         </div>
-        <div class="image">
-          <img src="survey-person.jpg" alt="Priamo v akcii" />
-        </div>
       </section>
 
       <section class="Sluzby" id="Sluzby">
@@ -141,14 +138,18 @@
           </div>
         </div>
         <div class="form-container">
-          <form class="form">
+          <form action="mailto:marianfedorjak@gmail.com" method="post" class="form">
+            <div class="form-group">
+              <label for="name">Meno</label>
+              <input type="text" id="name" name="name">
+            </div>
             <div class="form-group">
              <label for="email">Email</label>
              <input type="text" id="email" name="email" required="">
             </div>
             <div class="form-group">
               <label for="textarea">Popíš, akú službu potrebuješ:</label>
-              <textarea name="textarea" id="textarea" rows="10" cols="50" required="">          </textarea>
+              <textarea name="textarea" id="textarea" rows="10" cols="50" required=""></textarea>
             </div>
             <button class="form-submit-btn" type="submit">Odoslať</button>
           </form>

@@ -412,10 +412,7 @@ textarea:focus {
   justify-content: center;
   box-shadow: 0 0 0 4px var(--accent);
   cursor: pointer;
-  transition:
-    width 0.3s,
-    border-radius 0.3s,
-    background 0.3s;
+  transition: all 0.3s;
   overflow: hidden;
   position: fixed;
   bottom: 32px;
