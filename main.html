@@ -39,57 +39,123 @@
     </button>
 
     <header>
-      <button class="title">
+      <div class="header"></div>
+
+      <button class="title logo-center" aria-label="GEO GPS">
         <span class="actual-text">&nbsp;GEO GPS&nbsp;</span>
         <span aria-hidden="true" class="hover-text">&nbsp;GEO GPS&nbsp;</span>
       </button>
-      <nav>
-        <button
-          class="light-dark_mode"
-          onclick="toggleDarkMode()"
-          aria-label="Toggle dark mode"
-        >
-          <svg
-            class="sun-icon"
-            viewBox="0 0 24 24"
-            width="24"
-            height="24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
+
+      <div class="header-hamburger">
+        <button class="hamburger" id="hamburger" aria-label="Open menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+        <nav class="main-nav">
+          <button
+            class="light-dark_mode desktop-only"
+            onclick="toggleDarkMode()"
+            aria-label="Toggle dark mode"
           >
-            <circle cx="12" cy="12" r="5"></circle>
-            <line x1="12" y1="1" x2="12" y2="3"></line>
-            <line x1="12" y1="21" x2="12" y2="23"></line>
-            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-            <line x1="1" y1="12" x2="3" y2="12"></line>
-            <line x1="21" y1="12" x2="23" y2="12"></line>
-            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-          </svg>
-          <svg
-            class="moon-icon"
-            viewBox="0 0 24 24"
-            width="24"
-            height="24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-          >
-            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-          </svg>
-        </button>
-        <button class="nav_button" onclick="scrollToSection('O_nas')">
-          O nás
-        </button>
-        <button class="nav_button" onclick="scrollToSection('Sluzby')">
-          Služby
-        </button>
-        <button class="nav_button" onclick="scrollToSection('Kontakt')">
-          Kontakt
-        </button>
-      </nav>
+            <svg
+              class="sun-icon"
+              viewBox="0 0 24 24"
+              width="24"
+              height="24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <circle cx="12" cy="12" r="5"></circle>
+              <line x1="12" y1="1" x2="12" y2="3"></line>
+              <line x1="12" y1="21" x2="12" y2="23"></line>
+              <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+              <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+              <line x1="1" y1="12" x2="3" y2="12"></line>
+              <line x1="21" y1="12" x2="23" y2="12"></line>
+              <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+              <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+            </svg>
+            <svg
+              class="moon-icon"
+              viewBox="0 0 24 24"
+              width="24"
+              height="24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+            </svg>
+          </button>
+
+          <button class="nav_button" onclick="scrollToSection('O_nas')">
+            O nás
+          </button>
+          <button class="nav_button" onclick="scrollToSection('Sluzby')">
+            Služby
+          </button>
+          <button class="nav_button" onclick="scrollToSection('Kontakt')">
+            Kontakt
+          </button>
+        </nav>
+      </div>
+
+      <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+        <nav class="mobile-nav">
+          <button class="nav_button" onclick="handleMobileNav('O_nas')">
+            O nás
+          </button>
+          <button class="nav_button" onclick="handleMobileNav('Sluzby')">
+            Služby
+          </button>
+          <button class="nav_button" onclick="handleMobileNav('Kontakt')">
+            Kontakt
+          </button>
+          <div class="mobile-menu-footer">
+            <button
+              class="light-dark_mode"
+              onclick="toggleDarkMode()"
+              aria-label="Toggle dark mode"
+            >
+              <svg
+                class="sun-icon"
+                viewBox="0 0 24 24"
+                width="24"
+                height="24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <circle cx="12" cy="12" r="5"></circle>
+                <line x1="12" y1="1" x2="12" y2="3"></line>
+                <line x1="12" y1="21" x2="12" y2="23"></line>
+                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                <line x1="1" y1="12" x2="3" y2="12"></line>
+                <line x1="21" y1="12" x2="23" y2="12"></line>
+                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+              </svg>
+              <svg
+                class="moon-icon"
+                viewBox="0 0 24 24"
+                width="24"
+                height="24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path
+                  d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"
+                ></path>
+              </svg>
+            </button>
+          </div>
+        </nav>
+      </div>
     </header>
 
     <main>
@@ -189,7 +255,7 @@
           >
             <div class="form-group">
               <label for="name">Meno</label>
-              <input type="text" id="name" name="name"/>
+              <input type="text" id="name" name="name" />
             </div>
             <div class="form-group">
               <label for="email">Email</label>
@@ -256,6 +322,66 @@
 
       function scrollToTop() {
         window.scrollTo({ top: 0, behavior: "smooth" });
+      }
+
+      function handleMobileNav(id) {
+        toggleMenu();
+        const section = document.getElementById(id);
+        if (section) section.scrollIntoView({ behavior: "smooth" });
+      }
+      // Toggle mobile menu
+      function toggleMenu() {
+        const menu = document.getElementById("mobileMenu");
+        const btn = document.getElementById("hamburger");
+        const opened = document.body.classList.toggle("menu-open");
+        if (menu) menu.setAttribute("aria-hidden", opened ? "false" : "true");
+        if (btn) {
+          btn.setAttribute("aria-expanded", opened ? "true" : "false");
+          btn.classList.toggle("active", opened);
+        }
+        if (opened) {
+          const first = menu && menu.querySelector(".nav_button");
+          if (first) first.focus();
+        } else {
+          if (btn) btn.focus();
+        }
+      }
+
+      (function attachHamburger() {
+        const btn = document.getElementById("hamburger");
+        if (btn) btn.addEventListener("click", toggleMenu);
+      })();
+
+      (function hideOnScroll() {
+        let lastY = window.scrollY || 0;
+        let ticking = false;
+        window.addEventListener(
+          "scroll",
+          function () {
+            const currentY = window.scrollY || 0;
+            if (!ticking) {
+              window.requestAnimationFrame(function () {
+                if (currentY > lastY && currentY > 40) {
+                  document.body.classList.add("scrolling-down");
+                  document.body.classList.remove("scrolling-up");
+                } else {
+                  document.body.classList.remove("scrolling-down");
+                  document.body.classList.add("scrolling-up");
+                }
+                lastY = currentY;
+                ticking = false;
+              });
+              ticking = true;
+            }
+          },
+          { passive: true },
+        );
+      })();
+
+      function handleMobileNav(id) {
+        toggleMenu();
+        const section = document.getElementById(id);
+        if (section) section.scrollIntoView({ behavior: "smooth" });
       }
     </script>
     <script type="application/ld+json">
