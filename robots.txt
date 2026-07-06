@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.geogps.sk/sitemap.xml
+Sitemap: https://geogps.netlify.app/sitemap.xml

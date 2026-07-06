@@ -1,25 +1,25 @@
-<?xml version="1.2" encoding="UTF-8"?>
+<?xml version="1.3" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://www.geogps.sk/</loc>
+    <loc>https://geogps.netlify.app/</loc>
     <lastmod>2026-07-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://www.geogps.sk/#O_nas</loc>
+    <loc>https://geogps.netlify.app/#O_nas</loc>
     <lastmod>2026-07-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.geogps.sk/#Sluzby</loc>
+    <loc>https://geogps.netlify.app/#Sluzby</loc>
     <lastmod>2026-07-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.geogps.sk/#Kontakt</loc>
+    <loc>https://geogps.netlify.app/#Kontakt</loc>
     <lastmod>2026-07-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
