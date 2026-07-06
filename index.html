@@ -473,7 +473,32 @@
         const combinedText = normalizeText(`${rawName} ${rawMessage}`);
 
         const blockedPatterns = [
-
+          /kurv/,
+          /pic/,
+          /ppc/,
+          /kokot/,
+          /kkt/,
+          /jeb/,
+          /srac/,
+          /debil/,
+          /idiot/,
+          /smrt/,
+          /zabij/,
+          /zabit/,
+          /umri/,
+          /vyhroz/,
+          /curak/,
+          /hovn/,
+          /kreten/,
+          /fuck/,
+          /shit/,
+          /bitch/,
+          /asshol/,
+          /pussy/,
+          /motherfucker/,
+          /kill/,
+          /death/,
+          /threat/
         ];
 
         const containsBlocked = blockedPatterns.some((pattern) => pattern.test(combinedText));
