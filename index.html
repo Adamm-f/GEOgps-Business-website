@@ -378,6 +378,7 @@
               method="POST"
               data-netlify="true"
               netlify-honeypot="bot-field"
+              onsubmit="return validateContactForm(event);"
             >
               <input type="hidden" name="form-name" value="contact" />
               <p hidden>
@@ -457,6 +458,58 @@
     </a>
 
     <script>
+      /* Word filter */
+      function normalizeText(text) {
+        return text
+          .toLowerCase()
+          .normalize("NFD")
+          .replace(/[\u0300-\u036f]/g, "")
+          .replace(/[^a-z0-9]+/g, "")
+      }
+
+      function validateContactForm(event) {
+        const rawName = document.getElementById('name').value;
+        const rawMessage = document.getElementById('message').value;
+        const combinedText = normalizeText(`${rawName} ${rawMessage}`);
+
+        const blockedPatterns = [
+          /kurv/,
+          /pic/,
+          /kokot/,
+          /jeb/,
+          /srac/,
+          /debil/,
+          /idiot/,
+          /smrt/,
+          /zabij/,
+          /zabit/,
+          /umri/,
+          /vyhroz/,
+          /curak/,
+          /hovn/,
+          /kreten/,
+          /fuck/,
+          /shit/,
+          /bitch/,
+          /asshol/,
+          /pussy/,
+          /motherfucker/,
+          /kill/,
+          /death/,
+          /threat/
+        ];
+
+        const containsBlocked = blockedPatterns.some((pattern) => pattern.test(combinedText));
+
+        if (containsBlocked) {
+          event.preventDefault();
+          alert('Vaša správa obsahuje nevhodný obsah. Nemusíte byť neslušní :), prosím, upravte ju a skúste znova.');
+          return false;
+        }
+
+        return true;
+      }
+
       /* Dark theme */
       function isDarkActive() {
         var theme = document.documentElement.dataset.theme;
