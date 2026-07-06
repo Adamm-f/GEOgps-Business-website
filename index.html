@@ -469,8 +469,9 @@
 
       function validateContactForm(event) {
         const rawName = document.getElementById('name').value;
+        const rawEmail = document.getElementById('email').value;
         const rawMessage = document.getElementById('message').value;
-        const combinedText = normalizeText(`${rawName} ${rawMessage}`);
+        const combinedText = normalizeText(`${rawName} ${rawEmail} ${rawMessage}`);
 
         const blockedPatterns = [
           /kurv/,
