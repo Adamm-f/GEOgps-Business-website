@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <meta name="color-scheme" content="light dark" />
-
     <meta name="theme-color" content="#f7f8f6" media="(prefers-color-scheme: light)" />
     <meta name="theme-color" content="#10161f"  media="(prefers-color-scheme: dark)"  />
 
@@ -43,7 +42,6 @@
       (function () {
         var saved = localStorage.getItem('theme');
 
-        // Migrate legacy key written by previous code version
         var legacy = localStorage.getItem('darkMode');
         if (legacy !== null && saved === null) {
           saved = legacy === 'enabled' ? 'dark' : 'light';
@@ -51,8 +49,6 @@
           localStorage.removeItem('darkMode');
         }
 
-        // If the user has an explicit preference, stamp it immediately.
-        // Otherwise, the CSS @media query handles system preference without JS.
         if (saved === 'dark' || saved === 'light') {
           document.documentElement.dataset.theme = saved;
         }
@@ -63,7 +59,7 @@
   <body>
     <a class="skip-link" href="#main">Preskočiť na obsah</a>
 
-    <!-- Ikony -->
+    <!-- Icons -->
     <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" style="display: none">
       <symbol id="icon-marker" viewBox="0 0 24 24">
         <path d="M12 3 21 19H3Z" />
@@ -73,14 +69,14 @@
       <symbol id="icon-sun" viewBox="0 0 24 24">
         <circle cx="12" cy="12" r="4" fill="currentColor" stroke="none" />
         <g>
-          <line x1="12" y1="2"    x2="12" y2="5"    />
-          <line x1="12" y1="19"   x2="12" y2="22"   />
-          <line x1="2"  y1="12"   x2="5"  y2="12"   />
-          <line x1="19" y1="12"   x2="22" y2="12"   />
-          <line x1="4.9" y1="4.9" x2="7"  y2="7"    />
-          <line x1="17"  y1="17"  x2="19.1" y2="19.1"/>
-          <line x1="4.9" y1="19.1" x2="7" y2="17"   />
-          <line x1="17"  y1="7"   x2="19.1" y2="4.9"/>
+          <line x1="12" y1="2"     x2="12" y2="5"      />
+          <line x1="12" y1="19"    x2="12" y2="22"     />
+          <line x1="2"  y1="12"    x2="5"  y2="12"     />
+          <line x1="19" y1="12"    x2="22" y2="12"     />
+          <line x1="4.9" y1="4.9"  x2="7"  y2="7"      />
+          <line x1="17"  y1="17"   x2="19.1" y2="19.1" />
+          <line x1="4.9" y1="19.1" x2="7" y2="17"      />
+          <line x1="17"  y1="7"    x2="19.1" y2="4.9"  />
         </g>
       </symbol>
 
@@ -126,367 +122,404 @@
       </symbol>
     </svg>
 
-    <button class="button_back_to_top" onclick="scrollToTop()">
-      <svg class="svgIcon" viewBox="0 0 384 512">
-        <path
-          d="M214.6 41.4c-12.5-12.5-32.8-12.5-45.3 0l-160 160c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L160 141.2V448c0 17.7 14.3 32 32 32s32-14.3 32-32V141.2L329.4 246.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3l-160-160z"
-        ></path>
-      </svg>
-    </button>
+    <!-- Header -->  
+    <header class="site-header" id="top">
+      <div class="header-inner">
+        <a class="logo logo-animated" aria-label="GEO GPS — na začiatok stránky">
+          <svg class="icon icon-marker" aria-hidden="true" focusable="false">
+            <use href="#icon-marker"></use>
+          </svg>
+          <span class="logo-text">
+            <span class="logo-text-base">GEO GPS</span>
+            <span class="logo-text-hover" aria-hidden="true">GEO GPS</span>
+          </span>
+        </a>
 
-    <header>
-      <div class="header"></div>
+        <nav class="main-nav" aria-label="Hlavná navigácia">
+          <a class="nav-link" href="#o-nas">O nás</a>
+          <a class="nav-link" href="#sluzby">Služby</a>
+          <a class="nav-link" href="#kontakt">Kontakt</a>
+          <button class="theme-toggle" type="button" aria-label="Prepnúť na tmavý režim">
+            <svg class="icon icon-sun" aria-hidden="true" focusable="false">
+              <use href="#icon-sun"></use>
+            </svg>
+            <svg class="icon icon-moon" aria-hidden="true" focusable="false">
+              <use href="#icon-moon"></use>
+            </svg>
+          </button>
+        </nav>
 
-      <button class="title logo-center" aria-label="GEO GPS">
-        <span class="actual-text">&nbsp;GEO GPS&nbsp;</span>
-        <span aria-hidden="true" class="hover-text">&nbsp;GEO GPS&nbsp;</span>
-      </button>
-
-      <div class="header-hamburger">
-        <button class="hamburger" id="hamburger" aria-label="Open menu">
+        <button
+          class="hamburger"
+          id="hamburger"
+          type="button"
+          aria-label="Otvoriť menu"
+          aria-expanded="false"
+          aria-controls="mobileMenu"
+        >
           <span></span>
           <span></span>
           <span></span>
         </button>
-
-        <nav class="main-nav">
-          <button
-            class="light-dark_mode desktop-only"
-            onclick="toggleDarkMode()"
-            aria-label="Toggle dark mode"
-          >
-            <svg
-              class="sun-icon"
-              viewBox="0 0 24 24"
-              width="24"
-              height="24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-            >
-              <circle cx="12" cy="12" r="5"></circle>
-              <line x1="12" y1="1" x2="12" y2="3"></line>
-              <line x1="12" y1="21" x2="12" y2="23"></line>
-              <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-              <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-              <line x1="1" y1="12" x2="3" y2="12"></line>
-              <line x1="21" y1="12" x2="23" y2="12"></line>
-              <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-              <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-            </svg>
-            <svg
-              class="moon-icon"
-              viewBox="0 0 24 24"
-              width="24"
-              height="24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-            >
-              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-            </svg>
-          </button>
-
-          <button class="nav_button" onclick="scrollToSection('O_nas')">
-            O nás
-          </button>
-          <button class="nav_button" onclick="scrollToSection('Sluzby')">
-            Služby
-          </button>
-          <button class="nav_button" onclick="scrollToSection('Kontakt')">
-            Kontakt
-          </button>
-        </nav>
       </div>
 
-      <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
-        <nav class="mobile-nav">
-          <button class="nav_button" onclick="handleMobileNav('O_nas')">
-            O nás
-          </button>
-          <button class="nav_button" onclick="handleMobileNav('Sluzby')">
-            Služby
-          </button>
-          <button class="nav_button" onclick="handleMobileNav('Kontakt')">
-            Kontakt
-          </button>
-          <div class="mobile-menu-footer">
-            <button
-              class="light-dark_mode"
-              onclick="toggleDarkMode()"
-              aria-label="Toggle dark mode"
-            >
-              <svg
-                class="sun-icon"
-                viewBox="0 0 24 24"
-                width="24"
-                height="24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-              >
-                <circle cx="12" cy="12" r="5"></circle>
-                <line x1="12" y1="1" x2="12" y2="3"></line>
-                <line x1="12" y1="21" x2="12" y2="23"></line>
-                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-                <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-                <line x1="1" y1="12" x2="3" y2="12"></line>
-                <line x1="21" y1="12" x2="23" y2="12"></line>
-                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-                <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-              </svg>
-              <svg
-                class="moon-icon"
-                viewBox="0 0 24 24"
-                width="24"
-                height="24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-              >
-                <path
-                  d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"
-                ></path>
-              </svg>
-            </button>
-          </div>
-        </nav>
-      </div>
+      <nav
+        class="mobile-nav"
+        id="mobileMenu"
+        aria-label="Mobilná navigácia"
+        aria-hidden="true"
+      >
+        <a class="nav-link" href="#o-nas">O nás</a>
+        <a class="nav-link" href="#sluzby">Služby</a>
+        <a class="nav-link" href="#kontakt">Kontakt</a>
+        <button class="theme-toggle" type="button" aria-label="Prepnúť na tmavý režim">
+          <svg class="icon icon-sun" aria-hidden="true" focusable="false">
+            <use href="#icon-sun"></use>
+          </svg>
+          <svg class="icon icon-moon" aria-hidden="true" focusable="false">
+            <use href="#icon-moon"></use>
+          </svg>
+        </button>
+      </nav>
     </header>
 
-    <main>
-      <section class="O_nas" id="O_nas">
-        <div class="O_nas-text">
-          <h2>Presné meranie a vytyčovanie — geodetické služby (Košice)</h2>
-          <p>
-            Odborné geodetické služby s najmodernejšou technológiou pre presné
-            zememeračské práce, mapovanie nehnuteľností a vymedzovanie hraníc.
-            Dôveryhodná spoločnosť, ktorej profesionáli dôverujú už viac ako dve
-            desaťročia.
-          </p>
-          <div class="statistiky">
-            <div><span>30+</span> rokov skúseností</div>
-            <div><span>2500+</span> dokončených projektov</div>
-            <div><span>99%</span> miera presnosti</div>
-          </div>
-        </div>
-      </section>
+    <!-- Main -->
+    <main id="main" tabindex="-1">
 
-      <section class="Sluzby" id="Sluzby">
-        <div class="Sluzby-text">
-          <h2>Naše služby — geodetické merania a geometrické plány</h2>
-          <div class="Sluzby-list">
-            <div class="Sluzby-whole">
-              <div class="Sluzby-item">
-                <h3>Inžinierska geodézia</h3>
-                <p>
-                  Komplexné geodetické služby pre inžinierske projekty vrátane:
-                </p>
-                <ul>
-                  <li>
-                    Podklady pre projektanta - polohopisné a výškopisné
-                    zameranie územia
-                  </li>
-                  <li>
-                    Presné vytyčovanie základových pätiek stavieb
-                    (domy,haly,...)
-                  </li>
-                  <li>Porealizačné zameranie inžinierskych sieti</li>
-                </ul>
-              </div>
-              <div class="Sluzby-item">
-                <h3>Geometrické plány</h3>
-                <p>
-                  Vypracovanie geometrických plánov pre rôzne účely vrátane
-                  majetkoprávneho usporiadania, kolaudácie stavieb, oddelenia
-                  pozemkov a ďalších špecifických potrieb.
-                </p>
-              </div>
-            </div>
-            <div class="Sluzby-item">
-              <h3>Vytyčovanie pozemkov</h3>
-              <p>Presné vytyčovanie pozemkov a inžinierskych sietí v terene.</p>
-            </div>
-            <div class="Sluzby-item">
-              <h3>Vybavenie</h3>
-              <p>
-                Používame najmodernejšie geodetické nástroje vrátane GPS
-                prijímačov a softvéru pre presné meranie a spracovanie dát.
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="image">
+      <!-- About us section -->
+      <section class="about" id="o-nas">
+        <div class="decor">
           <img
-            src="/images/geodeticke-vybavenie-gps.jpg"
-            alt="Vybavenie geodetickej firmy - GPS prijímače a meracie nástroje"
-            width="600"
-            height="450"
+            class="decor-left-img"
+            src="images/v-akcii-na-sirku.jpg"
+            alt="Naša robota v akcii."
+            width="800"
+            height="400"
             loading="lazy"
+            decoding="async"
+            fetchpriority="low" 
+          />
+          <img
+            class="decor-right-img"
+            src="images/v-akcii-na-vysku.jpg"
+            alt="Naša robota v akcii."
+            width="400"
+            height="800"
+            loading="lazy"
+            decoding="async"
+            fetchpriority="low" 
           />
         </div>
-      </section>
+        <div class="container">
+          <div class="about-inner">
+            <div class="about-content">
+              <p class="eyebrow">
+                <svg class="icon icon-marker" aria-hidden="true" focusable="false">
+                  <use href="#icon-marker"></use>
+                </svg>
+                Geodetické služby · Košice
+              </p>
+              <h1>Presné meranie a vytyčovanie pozemkov</h1>
+              <p class="about-lead">
+                Odborné geodetické služby s najmodernejšou technológiou pre
+                presné zememeračské práce, mapovanie nehnuteľností a
+                vymedzovanie hraníc. Dôveryhodná spoločnosť, ktorej profesionáli
+                dôverujú už viac ako dve desaťročia.
+              </p>
+              <a class="button button-primary" href="#kontakt">Nezáväzná konzultácia</a>
+            </div>
 
-      <section class="Kontakt-banner" id="Kontakt">
-        <div class="Kontakt-text">
-          <h2>Pripravení začať váš projekt?</h2>
-          <p>
-            Kontaktujte nás ešte dnes pre bezplatnú konzultáciu a zistite, ako
-            naša geodetická odbornosť môže priniesť presnosť aj vášmu projektu.
-          </p>
-          <div class="Kontakt-info">
-            <p><strong>Telefónne číslo:</strong> +421 905 243 976</p>
-            <p><strong>Email:</strong> marianfedorjak@gmail.com</p>
-            <p>
-              <strong>Adresa:</strong> GEO GPS s.r.o., Kisdyho182/8, 040 01
-              Košice
-            </p>
+            <ul class="about-stats">
+              <li class="stat">
+                <strong>30+</strong>
+                <span>rokov skúseností</span>
+              </li>
+              <li class="stat">
+                <strong>2 500+</strong>
+                <span>dokončených projektov</span>
+              </li>
+              <li class="stat">
+                <strong>99 %</strong>
+                <span>miera presnosti</span>
+              </li>
+            </ul>
           </div>
         </div>
-        <div class="form-container">
-          <form
-            action="mailto:marianfedorjak@gmail.com"
-            method="post"
-            class="form"
-          >
-            <div class="form-group">
-              <label for="name">Meno</label>
-              <input type="text" id="name" name="name" />
+      </section>
+      
+      <!-- Služby -->
+      <section class="services" id="sluzby">
+        <div class="container">
+          <div class="section-head">
+            <p class="eyebrow">
+              <svg class="icon icon-marker" aria-hidden="true" focusable="false">
+                <use href="#icon-marker"></use>
+              </svg>
+              Čo robíme
+            </p>
+            <h2>Naše služby — geodetické merania a geometrické plány</h2>
+          </div>
+
+          <div class="service-grid">
+            <article class="service-card">
+              <svg class="icon service-icon" aria-hidden="true" focusable="false">
+                <use href="#icon-compass"></use>
+              </svg>
+              <h3>Inžinierska geodézia</h3>
+              <p>Komplexné geodetické služby pre inžinierske projekty vrátane:</p>
+              <ul>
+                <li>
+                  Podklady pre projektanta — polohopisné a výškopisné
+                  zameranie územia
+                </li>
+                <li>
+                  Presné vytyčovanie základových pätiek stavieb (domy, haly, …)
+                </li>
+                <li>Porealizačné zameranie inžinierskych sietí</li>
+              </ul>
+            </article>
+
+            <article class="service-card">
+              <svg class="icon service-icon" aria-hidden="true" focusable="false">
+                <use href="#icon-file-text"></use>
+              </svg>
+              <h3>Geometrické plány</h3>
+              <p>
+                Vypracovanie geometrických plánov pre rôzne účely —
+                majetkoprávne usporiadanie, kolaudácia stavieb, oddelenie
+                pozemkov a ďalšie špecifické potreby.
+              </p>
+            </article>
+
+            <article class="service-card">
+              <svg class="icon service-icon" aria-hidden="true" focusable="false">
+                <use href="#icon-map-pin"></use>
+              </svg>
+              <h3>Vytyčovanie pozemkov</h3>
+              <p>
+                Presné vytyčovanie pozemkov a inžinierskych sietí priamo v
+                teréne.
+              </p>
+            </article>
+
+            <article class="service-card">
+              <svg class="icon service-icon" aria-hidden="true" focusable="false">
+                <use href="#icon-satellite"></use>
+              </svg>
+              <h3>Vybavenie</h3>
+              <p>
+                Používame najmodernejšie geodetické nástroje — GPS prijímače
+                a softvér pre presné meranie a spracovanie dát.
+              </p>
+            </article>
+          </div>
+
+          <figure class="equipment-figure">
+            <img
+              src="/images/geodeticke-vybavenie-gps.jpg"
+              alt="Vybavenie geodetickej firmy — GPS prijímače a meracie nástroje"
+              width="1200"
+              height="450"
+              loading="lazy"
+              decoding="async"
+              fetchpriority="low"
+            />
+            <figcaption>
+              Moderné GPS prijímače a meracie nástroje, ktoré používame v
+              teréne.
+            </figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <!-- Kontakt -->
+      <section class="contact" id="kontakt">
+        <div class="container">
+          <div class="contact-grid">
+            <div class="contact-info">
+              <p class="eyebrow">
+                <svg class="icon icon-marker" aria-hidden="true" focusable="false">
+                  <use href="#icon-marker"></use>
+                </svg>
+                Kontakt
+              </p>
+              <h2>Pripravení začať váš projekt?</h2>
+              <p>
+                Kontaktujte nás ešte dnes pre bezplatnú konzultáciu a zistite,
+                ako naša geodetická odbornosť môže priniesť presnosť aj vášmu
+                projektu.
+              </p>
+
+              <ul class="contact-list">
+                <li>
+                  <svg class="icon" aria-hidden="true" focusable="false">
+                    <use href="#icon-phone"></use>
+                  </svg>
+                  <a href="tel:+421905243976">+421 905 243 976</a>
+                </li>
+                <li>
+                  <svg class="icon" aria-hidden="true" focusable="false">
+                    <use href="#icon-mail"></use>
+                  </svg>
+                  <a href="mailto:marianfedorjak@gmail.com">marianfedorjak@gmail.com</a>
+                </li>
+                <li>
+                  <svg class="icon" aria-hidden="true" focusable="false">
+                    <use href="#icon-map-pin"></use>
+                  </svg>
+                  <span>GEO GPS s.r.o., Kisdyho 182/8, 040 01 Košice</span>
+                </li>
+              </ul>
             </div>
-            <div class="form-group">
-              <label for="email">Email</label>
-              <input type="text" id="email" name="email" required="" />
-            </div>
-            <div class="form-group">
-              <label for="textarea">Popíš, akú službu potrebuješ:</label>
-              <textarea
-                name="textarea"
-                id="textarea"
-                rows="10"
-                cols="50"
-                required=""
-              ></textarea>
-            </div>
-            <button class="form-submit-btn" type="submit">Odoslať</button>
-          </form>
+
+            <form class="contact-form" action="mailto:marianfedorjak@gmail.com">
+              <div class="form-field">
+                <label for="name">Meno</label>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  autocomplete="name"
+                  placeholder="Ján Novák"
+                />
+              </div>
+
+              <div class="form-field">
+                <label for="email">Email <span class="required-mark" aria-hidden="true">*</span></label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  autocomplete="email"
+                  required
+                  placeholder="jan@example.sk"
+                />
+              </div>
+
+              <div class="form-field">
+                <label for="message">
+                  Popíšte, akú službu potrebujete
+                  <span class="required-mark" aria-hidden="true">*</span>
+                </label>
+                <textarea
+                  id="message"
+                  name="message"
+                  rows="5"
+                  required
+                  placeholder="Napr. vytyčovanie pozemku v Košiciach…"
+                ></textarea>
+              </div>
+
+              <button class="button button-primary" type="submit">
+                Odoslať správu
+              </button>
+            </form>
+          </div>
         </div>
       </section>
     </main>
 
+    <!-- Footer -->
     <footer class="site-footer">
-      <div class="footer-content">
-        <div class="footer-logo">
-          <h1>GEO GPS</h1>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        © 2026 GEO GPS s.r.o. Všetky práva vyhradené.
+      <div class="container footer-inner">
+        <p class="footer-logo">GEO GPS</p>
+        <address>GEO GPS s.r.o., Kisdyho 182/8, 040 01 Košice</address>
+        <p class="footer-copy">© 2026 GEO GPS s.r.o. Všetky práva vyhradené.</p>
       </div>
     </footer>
 
-    <script>
-      function toggleDarkMode() {
-        document.body.classList.toggle("dark-mode");
+    <!-- Back-to-top -->  
+    <a class="back-to-top" aria-label="Späť na začiatok stránky" onclick="scrollToTop()">
+      <svg class="icon" aria-hidden="true" focusable="false">
+        <use href="#icon-arrow-up"></use>
+      </svg>
+    </a>
 
-        if (document.body.classList.contains("dark-mode")) {
-          localStorage.setItem("darkMode", "enabled");
-        } else {
-          localStorage.setItem("darkMode", "disabled");
-        }
+    <script>
+      /* Dark theme */
+      function isDarkActive() {
+        var theme = document.documentElement.dataset.theme;
+        return theme
+          ? theme === 'dark'
+          : window.matchMedia('(prefers-color-scheme: dark)').matches;
       }
 
-      window.addEventListener("DOMContentLoaded", function () {
-        const darkModePreference = localStorage.getItem("darkMode");
-        const prefersDark = window.matchMedia(
-          "(prefers-color-scheme: dark)",
-        ).matches;
+      /* Theme toggle */
+      function updateThemeLabels(dark) {
+        var label = dark ? 'Prepnúť na svetlý režim' : 'Prepnúť na tmavý režim';
+        document.querySelectorAll('.theme-toggle').forEach(function (button) {
+          button.setAttribute('aria-label', label);
+        });
+      }
 
-        if (
-          darkModePreference === "enabled" ||
-          (darkModePreference === null && prefersDark)
-        ) {
-          document.body.classList.add("dark-mode");
+      function toggleTheme() {
+        var next = isDarkActive() ? 'light' : 'dark';
+        document.documentElement.dataset.theme = next;
+        localStorage.setItem('theme', next);
+        updateThemeLabels(next === 'dark');
+      }
+
+      document.querySelectorAll('.theme-toggle').forEach(function (button) {
+        button.addEventListener('click', toggleTheme);
+      });
+
+      updateThemeLabels(isDarkActive());
+
+      /* Mobile menu */
+      var hamburger  = document.getElementById('hamburger');
+      var mobileMenu = document.getElementById('mobileMenu');
+
+      function openMenu() {
+        hamburger.setAttribute('aria-expanded', 'true');
+        mobileMenu.setAttribute('aria-hidden',  'false');
+      }
+
+      function closeMenu() {
+        hamburger.setAttribute('aria-expanded', 'false');
+        mobileMenu.setAttribute('aria-hidden',  'true');
+      }
+
+      hamburger.addEventListener('click', function () {
+        if (hamburger.getAttribute('aria-expanded') === 'true') {
+          closeMenu();
+        } else {
+          openMenu();
         }
       });
 
-      function scrollToSection(id) {
-        const section = document.getElementById(id);
-        if (section) {
-          section.scrollIntoView({ behavior: "smooth" });
-        }
-      }
+      mobileMenu.querySelectorAll('.nav-link').forEach(function (link) {
+        link.addEventListener('click', closeMenu);
+      });
 
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && hamburger.getAttribute('aria-expanded') === 'true') {
+          closeMenu();
+          hamburger.focus();
+        }
+      });
+
+      /* Back-to-top-button */
       function scrollToTop() {
         window.scrollTo({ top: 0, behavior: "smooth" });
       }
 
-      function handleMobileNav(id) {
-        toggleMenu();
-        const section = document.getElementById(id);
-        if (section) section.scrollIntoView({ behavior: "smooth" });
-      }
-      // Toggle mobile menu
-      function toggleMenu() {
-        const menu = document.getElementById("mobileMenu");
-        const btn = document.getElementById("hamburger");
-        const opened = document.body.classList.toggle("menu-open");
-        if (menu) menu.setAttribute("aria-hidden", opened ? "false" : "true");
-        if (btn) {
-          btn.setAttribute("aria-expanded", opened ? "true" : "false");
-          btn.classList.toggle("active", opened);
-        }
-        if (opened) {
-          const first = menu && menu.querySelector(".nav_button");
-          if (first) first.focus();
-        } else {
-          if (btn) btn.focus();
-        }
+      var backToTop = document.querySelector('.back-to-top');
+
+      function updateBackToTop() {
+        backToTop.classList.toggle('is-visible', window.scrollY > 300);
       }
 
-      (function attachHamburger() {
-        const btn = document.getElementById("hamburger");
-        if (btn) btn.addEventListener("click", toggleMenu);
-      })();
-
-      (function hideOnScroll() {
-        let lastY = window.scrollY || 0;
-        let ticking = false;
-        window.addEventListener(
-          "scroll",
-          function () {
-            const currentY = window.scrollY || 0;
-            if (!ticking) {
-              window.requestAnimationFrame(function () {
-                if (currentY > lastY && currentY > 40) {
-                  document.body.classList.add("scrolling-down");
-                  document.body.classList.remove("scrolling-up");
-                } else {
-                  document.body.classList.remove("scrolling-down");
-                  document.body.classList.add("scrolling-up");
-                }
-                lastY = currentY;
-                ticking = false;
-              });
-              ticking = true;
-            }
-          },
-          { passive: true },
-        );
-      })();
-
-      function handleMobileNav(id) {
-        toggleMenu();
-        const section = document.getElementById(id);
-        if (section) section.scrollIntoView({ behavior: "smooth" });
-      }
+      window.addEventListener('scroll', updateBackToTop, { passive: true });
+      updateBackToTop();
     </script>
+
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
         "@type": "LocalBusiness",
         "name": "GEO GPS s.r.o.",
         "telephone": "+421905243976",
-        "email": "mailto:marianfedorjak@gmail.com",
+        "email": "marianfedorjak@gmail.com",
         "address": {
           "@type": "PostalAddress",
           "streetAddress": "Kisdyho 182/8",
