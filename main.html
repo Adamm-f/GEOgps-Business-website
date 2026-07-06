@@ -3,6 +3,12 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <meta name="color-scheme" content="light dark" />
+
+    <meta name="theme-color" content="#f7f8f6" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#10161f"  media="(prefers-color-scheme: dark)"  />
+
     <title>GEO GPS — geodetické služby, vytyčovanie pozemkov | Košice</title>
     <meta
       name="description"
@@ -12,24 +18,114 @@
       name="keywords"
       content="geodetické služby, vytyčovanie pozemkov, geometrický plán, geodet Košice, meranie pozemku"
     />
+
+    <!-- Open Graphs -->
+    <meta property="og:type"        content="website" />
+    <meta property="og:url"         content="https://www.geogps.sk/" />
+    <meta property="og:title"       content="GEO GPS — geodetické služby, vytyčovanie pozemkov | Košice" />
+    <meta property="og:description" content="Presné geodetické služby v Košiciach: vytyčovanie pozemkov, geometrické plány, inžinierska geodézia." />
+
     <link rel="canonical" href="https://www.geogps.sk/" />
+    <link rel="icon"    type="image/png"      href="/images/icon.png" />
+    <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      rel="preload"
-      href="style.css"
-      as="style"
-      onload="this.rel = 'stylesheet'"
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500;700&display=swap"
+      rel="stylesheet"
     />
-    <noscript><link rel="stylesheet" href="style.css" /></noscript>
-    <link rel="icon" type="image/png" href="/images/favicon.png" />
-    <link
-      rel="sitemap"
-      type="application/xml"
-      title="Sitemap"
-      href="/sitemap.xml"
-    />
+
+    <link rel="stylesheet" href="style.css" />
+
+    <script>
+      (function () {
+        var saved = localStorage.getItem('theme');
+
+        // Migrate legacy key written by previous code version
+        var legacy = localStorage.getItem('darkMode');
+        if (legacy !== null && saved === null) {
+          saved = legacy === 'enabled' ? 'dark' : 'light';
+          localStorage.setItem('theme', saved);
+          localStorage.removeItem('darkMode');
+        }
+
+        // If the user has an explicit preference, stamp it immediately.
+        // Otherwise, the CSS @media query handles system preference without JS.
+        if (saved === 'dark' || saved === 'light') {
+          document.documentElement.dataset.theme = saved;
+        }
+      }());
+    </script>
   </head>
 
   <body>
+    <a class="skip-link" href="#main">Preskočiť na obsah</a>
+
+    <!-- Ikony -->
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" style="display: none">
+      <symbol id="icon-marker" viewBox="0 0 24 24">
+        <path d="M12 3 21 19H3Z" />
+        <circle cx="12" cy="13.4" r="1.4" fill="currentColor" stroke="none" />
+      </symbol>
+
+      <symbol id="icon-sun" viewBox="0 0 24 24">
+        <circle cx="12" cy="12" r="4" fill="currentColor" stroke="none" />
+        <g>
+          <line x1="12" y1="2"    x2="12" y2="5"    />
+          <line x1="12" y1="19"   x2="12" y2="22"   />
+          <line x1="2"  y1="12"   x2="5"  y2="12"   />
+          <line x1="19" y1="12"   x2="22" y2="12"   />
+          <line x1="4.9" y1="4.9" x2="7"  y2="7"    />
+          <line x1="17"  y1="17"  x2="19.1" y2="19.1"/>
+          <line x1="4.9" y1="19.1" x2="7" y2="17"   />
+          <line x1="17"  y1="7"   x2="19.1" y2="4.9"/>
+        </g>
+      </symbol>
+
+      <symbol id="icon-moon" viewBox="0 0 24 24">
+        <path d="M20 14.5A8.5 8.5 0 1 1 9.5 4 7 7 0 0 0 20 14.5Z" fill="currentColor" stroke="none" />
+      </symbol>
+
+      <symbol id="icon-compass" viewBox="0 0 24 24">
+        <circle cx="12" cy="12" r="9" />
+        <path d="M15.5 8.5 13.2 13.2 8.5 15.5 10.8 10.8Z" />
+      </symbol>
+
+      <symbol id="icon-file-text" viewBox="0 0 24 24">
+        <path d="M7 3h7l4 4v13a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1Z" />
+        <path d="M14 3v4h4" />
+        <line x1="9" y1="12"   x2="15"   y2="12"   />
+        <line x1="9" y1="15.5" x2="13.5" y2="15.5" />
+      </symbol>
+
+      <symbol id="icon-map-pin" viewBox="0 0 24 24">
+        <path d="M12 21s-7-5.4-7-11a7 7 0 1 1 14 0c0 5.6-7 11-7 11Z" />
+        <circle cx="12" cy="10" r="2.2" fill="currentColor" stroke="none" />
+      </symbol>
+
+      <symbol id="icon-satellite" viewBox="0 0 24 24">
+        <circle cx="12" cy="19" r="1.4" fill="currentColor" stroke="none" />
+        <path d="M7.2 19a4.8 4.8 0 0 1 9.6 0" />
+        <path d="M3.5 19a8.5 8.5 0 0 1 17 0" />
+      </symbol>
+
+      <symbol id="icon-phone" viewBox="0 0 24 24">
+        <path d="M6.6 10.8a15.3 15.3 0 0 0 6.6 6.6l2.2-2.2a1.2 1.2 0 0 1 1.2-.3c1.3.4 2.7.6 4.1.6a1.2 1.2 0 0 1 1.2 1.2v3.6a1.2 1.2 0 0 1-1.2 1.2C10.6 21.5 2.5 13.4 2.5 3.2A1.2 1.2 0 0 1 3.7 2h3.6a1.2 1.2 0 0 1 1.2 1.2c0 1.4.2 2.8.6 4.1a1.2 1.2 0 0 1-.3 1.2Z" />
+      </symbol>
+
+      <symbol id="icon-mail" viewBox="0 0 24 24">
+        <rect x="2.5" y="4.5" width="19" height="15" rx="2" />
+        <path d="M3 6.5 12 12.5 21 6.5" />
+      </symbol>
+
+      <symbol id="icon-arrow-up" viewBox="0 0 24 24">
+        <line x1="12" y1="19" x2="12" y2="5" />
+        <path d="M6 11 12 5 18 11" />
+      </symbol>
+    </svg>
+
     <button class="button_back_to_top" onclick="scrollToTop()">
       <svg class="svgIcon" viewBox="0 0 384 512">
         <path
