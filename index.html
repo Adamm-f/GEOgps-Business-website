@@ -474,6 +474,7 @@
         const combinedText = normalizeText(`${rawName} ${rawEmail} ${rawMessage}`);
 
         const blockedPatterns = [
+          /*
           /kurv/,
           /pic/,
           /ppc/,
@@ -500,6 +501,7 @@
           /kill/,
           /death/,
           /threat/
+          */
         ];
 
         const containsBlocked = blockedPatterns.some((pattern) => pattern.test(combinedText));
