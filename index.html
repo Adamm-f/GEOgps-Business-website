@@ -469,39 +469,11 @@
 
       function validateContactForm(event) {
         const rawName = document.getElementById('name').value;
-        const rawEmail = document.getElementById('email').value;
         const rawMessage = document.getElementById('message').value;
-        const combinedText = normalizeText(`${rawName} ${rawEmail} ${rawMessage}`);
+        const combinedText = normalizeText(`${rawName} ${rawMessage}`);
 
         const blockedPatterns = [
-          /*
-          /kurv/,
-          /pic/,
-          /ppc/,
-          /kokot/,
-          /kkt/,
-          /jeb/,
-          /srac/,
-          /debil/,
-          /idiot/,
-          /smrt/,
-          /zabij/,
-          /zabit/,
-          /umri/,
-          /vyhroz/,
-          /curak/,
-          /hovn/,
-          /kreten/,
-          /fuck/,
-          /shit/,
-          /bitch/,
-          /asshol/,
-          /pussy/,
-          /motherfucker/,
-          /kill/,
-          /death/,
-          /threat/
-          */
+
         ];
 
         const containsBlocked = blockedPatterns.some((pattern) => pattern.test(combinedText));
