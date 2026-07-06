@@ -374,6 +374,7 @@
 
             <form
               class="contact-form"
+              name="contact"
               method="POST"
               data-netlify="true"
               netlify-honeypot="bot-field"
@@ -408,6 +409,13 @@
                   placeholder="jan@example.sk"
                 />
               </div>
+
+              <input
+                type="hidden"
+                id="subject"
+                name="subject"
+                value="Nová správa z kontaktného formulára"
+              />
 
               <div class="form-field">
                 <label for="message">
@@ -532,7 +540,7 @@
         "@type": "LocalBusiness",
         "name": "GEO GPS s.r.o.",
         "telephone": "+421905243976",
-        "email": "adamfedorjak@gmail.com",
+        "email": "marianfedorjak@gmail.com",
         "address": {
           "@type": "PostalAddress",
           "streetAddress": "Kisdyho 182/8",
