@@ -502,7 +502,10 @@
 
   .about-lead {
     font-size: 1.1rem;
-    color: var(--color-text-muted);
+    color: var(--color-text);
+    background-color: color-mix(in srgb, var(--color-surface-2) 45%, transparent);
+    padding: 1.5rem 2rem;
+    border-radius: 14px;
     max-inline-size: 36em;
     margin-block: 0 2rem;
   }
