@@ -32,14 +32,6 @@
     <link rel="icon"    type="image/png"      href="/images/icon.png" />
     <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" />
 
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500;700&display=swap"
-      rel="stylesheet"
-    />
-
     <link rel="stylesheet" href="style.css" />
 
     <script>
@@ -399,7 +391,7 @@
                   id="name"
                   name="name"
                   autocomplete="name"
-                  placeholder="Ján Novák"
+                  placeholder="Ján Novák (dobrovoľné)"
                 />
               </div>
 
@@ -439,6 +431,12 @@
               <button class="button button-primary" type="submit">
                 Odoslať správu
               </button>
+
+              <p class="form-privacy-note">
+                Odoslaním formulára súhlasíte so spracovaním vašich údajov na účel
+                odpovede na vašu požiadavku. Viac informácií nájdete v
+                <a href="privacy-policy.html">Ochrane osobných údajov</a>.
+              </p>
             </form>
           </div>
         </div>
@@ -449,8 +447,14 @@
     <footer class="site-footer">
       <div class="container footer-inner">
         <p class="footer-logo">GEO GPS</p>
-        <address>GEO GPS s.r.o., Kisdyho 182/8, 040 01 Košice</address>
-        <p class="footer-copy">© 2026 GEO GPS s.r.o. Všetky práva vyhradené.</p>
+        <address>GEO GPS s.r.o., Kisdyho 182/8, 040 01 Košice<br>IČO: <b>52136841</b><br>DIČ: <b>2120905314</b></address>
+        <div class="footer-meta">
+          <div class="footer-links">
+            <a href="privacy-policy.html">Ochrana osobných údajov</a>
+            <a href="terms.html">Podmienky používania</a>
+          </div>             
+          <span>© 2026 GEO GPS s.r.o. Všetky práva vyhradené.</span>
+        </div>
       </div>
     </footer>
 
@@ -621,8 +625,14 @@
         "openingHoursSpecification": [
           {
             "@type": "OpeningHoursSpecification",
-            "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],
-            "opens": "07:00",
+            "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
+            "opens": "08:00",
+            "closes": "19:00"
+          },
+          {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": "Saturday",
+            "opens": "10:00"
             "closes": "18:00"
           }
         ],
@@ -639,8 +649,7 @@
           { "@type": "City", "name": "Poprad" }
         ],
         "sameAs": [
-          "REPLACE_WITH_GOOGLE_BUSINESS_PROFILE_URL",
-          "REPLACE_WITH_FACEBOOK_PAGE_URL"
+          "https://maps.app.goo.gl/BFPX7MmhGnmP2yKR7",
         ],
         "hasOfferCatalog": {
           "@type": "OfferCatalog",
